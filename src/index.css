@@ -49,7 +49,7 @@ body {
 
 #word--input > button {
     width: fit-content;
-    padding: 0.5rem;
+    padding: 0 2rem;
     background-color: #1C2541;
     color: #E7DBCD;
     border-radius: 0 1rem 1rem 0;
