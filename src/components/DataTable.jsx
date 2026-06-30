@@ -14,6 +14,58 @@ export default function DataTable({showIndex}){
         {showIndex && <div className="row">#2</div>}
         <div className="row">Ana</div>
         <div className="row">4 pts</div>
+        
+        {showIndex && <div className="row">#2</div>}
+        <div className="row">Ana</div>
+        <div className="row">4 pts</div>
+
+        {showIndex && <div className="row">#2</div>}
+        <div className="row">Ana</div>
+        <div className="row">4 pts</div>
+
+        {showIndex && <div className="row">#2</div>}
+        <div className="row">Ana</div>
+        <div className="row">4 pts</div>
+
+        {showIndex && <div className="row">#2</div>}
+        <div className="row">Ana</div>
+        <div className="row">4 pts</div>
+                {showIndex && <div className="row">#2</div>}
+        <div className="row">Ana</div>
+        <div className="row">4 pts</div>
+
+        {showIndex && <div className="row">#2</div>}
+        <div className="row">Ana</div>
+        <div className="row">4 pts</div>
+                {showIndex && <div className="row">#2</div>}
+        <div className="row">Ana</div>
+        <div className="row">4 pts</div>
+
+        {showIndex && <div className="row">#2</div>}
+        <div className="row">Ana</div>
+        <div className="row">4 pts</div>
+                {showIndex && <div className="row">#2</div>}
+        <div className="row">Ana</div>
+        <div className="row">4 pts</div>
+
+        {showIndex && <div className="row">#2</div>}
+        <div className="row">Ana</div>
+        <div className="row">4 pts</div>
+                {showIndex && <div className="row">#2</div>}
+        <div className="row">Ana</div>
+        <div className="row">4 pts</div>
+
+        {showIndex && <div className="row">#2</div>}
+        <div className="row">Ana</div>
+        <div className="row">4 pts</div>
+                {showIndex && <div className="row">#2</div>}
+        <div className="row">Ana</div>
+        <div className="row">4 pts</div>
+
+        {showIndex && <div className="row">#2</div>}
+        <div className="row">Ana</div>
+        <div className="row">4 pts</div>
+        
     </div>
     );
 }
