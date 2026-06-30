@@ -27,3 +27,20 @@ body {
     font-weight: 600;
     font-size: 26px;
 }
+
+
+#word--input {
+    display: flex;
+    flex-direction: row;
+    width: 500px;
+}
+
+#word--input > input {
+    width: 100%;
+    padding: 0.5rem;
+}
+
+#word--input > button {
+    width: fit-content;
+    padding: 0.5rem;
+}

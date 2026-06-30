@@ -1,7 +1,7 @@
 import { useState } from "react"
 import DataTable from "../components/DataTable";
 import Timer from "../components/Timer";
-import WorldInput from "../components/WorldInput";
+import WordInput from "../components/WordInput";
 import "../index.css";
 
 export default function Game(){
@@ -10,7 +10,7 @@ export default function Game(){
     return(
     <div id='container'>
         <Timer />
-        <WorldInput />
+        <WordInput />
         <DataTable />
     </div>
     )
