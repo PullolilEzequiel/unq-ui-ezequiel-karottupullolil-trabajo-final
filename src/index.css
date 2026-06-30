@@ -67,12 +67,9 @@ body {
 
 #data-table {
     display: grid;
-    gap: 12px;
+    gap: 24px;
     width: 100%;
-    
-    max-height: 50vh;
-    min-height: 25vh;
-
+    height: 50vh;
     padding: 0 2rem;
     box-sizing: border-box;
     grid-auto-rows: 40px;
@@ -118,6 +115,3 @@ body {
     margin-bottom: 10px;
 }
 
-.row:last-child{
-    border-bottom: 0px;
-}

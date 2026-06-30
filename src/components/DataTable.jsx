@@ -15,57 +15,7 @@ return (
         {showIndex && <div className="row">#2</div>}
         <div className="row">Ana</div>
         <div className="row">4 pts</div>
-        
-        {showIndex && <div className="row">#2</div>}
-        <div className="row">Ana</div>
-        <div className="row">4 pts</div>
 
-        {showIndex && <div className="row">#2</div>}
-        <div className="row">Ana</div>
-        <div className="row">4 pts</div>
-
-        {showIndex && <div className="row">#2</div>}
-        <div className="row">Ana</div>
-        <div className="row">4 pts</div>
-
-        {showIndex && <div className="row">#2</div>}
-        <div className="row">Ana</div>
-        <div className="row">4 pts</div>
-                {showIndex && <div className="row">#2</div>}
-        <div className="row">Ana</div>
-        <div className="row">4 pts</div>
-
-        {showIndex && <div className="row">#2</div>}
-        <div className="row">Ana</div>
-        <div className="row">4 pts</div>
-                {showIndex && <div className="row">#2</div>}
-        <div className="row">Ana</div>
-        <div className="row">4 pts</div>
-
-        {showIndex && <div className="row">#2</div>}
-        <div className="row">Ana</div>
-        <div className="row">4 pts</div>
-                {showIndex && <div className="row">#2</div>}
-        <div className="row">Ana</div>
-        <div className="row">4 pts</div>
-
-        {showIndex && <div className="row">#2</div>}
-        <div className="row">Ana</div>
-        <div className="row">4 pts</div>
-                {showIndex && <div className="row">#2</div>}
-        <div className="row">Ana</div>
-        <div className="row">4 pts</div>
-
-        {showIndex && <div className="row">#2</div>}
-        <div className="row">Ana</div>
-        <div className="row">4 pts</div>
-                {showIndex && <div className="row">#2</div>}
-        <div className="row">Ana</div>
-        <div className="row">4 pts</div>
-
-        {showIndex && <div className="row">#2</div>}
-        <div className="row">Last</div>
-        <div className="row">4 pts</div>
         
     </div>
 </div>    
