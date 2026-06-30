@@ -1,6 +1,10 @@
 import { BrowserRouter, Route } from 'react-router-dom'
-import './App.css'
+import Game from './pages/Game'
+import GameOver from './pages/GameOver'
+import About from './pages/About'
 
+
+import './App.css'
 function App() {
   return (
     <BrowserRouter>
