@@ -3,21 +3,29 @@ import DataTable from "../components/DataTable";
 import Timer from "../components/Timer";
 import WordInput from "../components/WordInput";
 import "../index.css";
+import {  useNavigate } from "react-router-dom";
 
 export default function Game(){
-    const [gameState, setGameState] = useState("START");
+    const navigate = useNavigate();
+    const [isPlaying, setPlaying] = useState(false);
     const [palabrasUsadas, setPalabrasUsadas]=useState([]);
-
     const agregarPalabra = (palabra)=>{
-
+        if(!isPlaying){
+            setPlaying(true)
+        }
     }
 
     const gameOver = ()=>{
-        console.log("lose")
+        //navigate("/game-over")
+        setPlaying(false)
+    }
+
+    const startGame = () => {
+
     }
     return(
     <div id='container'>
-        <Timer onTimeUp={gameOver}/>
+        <Timer onTimeUp={gameOver} active={isPlaying}/>
         <WordInput onAction={agregarPalabra}/>
         <DataTable  data={palabrasUsadas} showIndex={false}/>
     </div>
