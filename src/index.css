@@ -17,6 +17,8 @@ body {
     align-items: center;
     padding: 2rem;
     gap: 2rem;
+
+    overflow-y: none;
 }
 
 #timer {
@@ -66,9 +68,13 @@ body {
     box-sizing: border-box;
     border-radius: 1.5rem;
     grid-auto-rows: 40px;
-    overflow-y: scroll;
+    overflow-y: hidden;
 
     align-self: center;
+}
+
+#data-table:hover {
+    overflow-y: auto; 
 }
 
 
@@ -103,4 +109,6 @@ body {
     border-bottom: #202533 1px solid;
     display: flex;
     align-items: center;
+    margin-bottom: 10px;
 }
+
