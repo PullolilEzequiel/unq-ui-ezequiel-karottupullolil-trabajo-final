@@ -1,5 +1,6 @@
 export default function DataTable({showIndex}){
-    return (
+return (
+<div id="table-container">
     <div id="data-table" className={showIndex ? "scoreboard" : "wordboard"}>
         {showIndex && <div className="tableHeader">Posición</div>}
         <div className="tableHeader">Nombre</div>
@@ -67,5 +68,6 @@ export default function DataTable({showIndex}){
         <div className="row">4 pts</div>
         
     </div>
-    );
+</div>    
+);
 }

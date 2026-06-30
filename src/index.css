@@ -55,22 +55,28 @@ body {
     border-radius: 0 1rem 1rem 0;
 }
 
+#table-container{
+    width: 50%;
+    background-color: #E7DBCD;
+
+    border-radius: 1.5rem;
+    overflow: hidden;
+    align-self: center;
+    box-sizing: border-box;
+}
+
 #data-table {
     display: grid;
     gap: 12px;
-    width: 50%;
+    width: 100%;
     
     max-height: 50vh;
     min-height: 25vh;
 
-    background-color: #E7DBCD;
     padding: 0 2rem;
     box-sizing: border-box;
-    border-radius: 1.5rem;
     grid-auto-rows: 40px;
     overflow-y: hidden;
-
-    align-self: center;
 }
 
 #data-table:hover {
@@ -112,3 +118,6 @@ body {
     margin-bottom: 10px;
 }
 
+.row:last-child{
+    border-bottom: 0px;
+}
