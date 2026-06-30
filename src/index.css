@@ -32,15 +32,53 @@ body {
 #word--input {
     display: flex;
     flex-direction: row;
-    width: 500px;
+    width: 100%;
+    max-width: 750px;
 }
 
 #word--input > input {
     width: 100%;
-    padding: 0.5rem;
+    background-color: #E7DBCD;
+    padding: 1.5rem;
+    border-radius: 1rem 0 0 1rem;
+    font-size: 24px;
+    color: #1C2541;
 }
 
 #word--input > button {
     width: fit-content;
     padding: 0.5rem;
+    background-color: #1C2541;
+    color: #E7DBCD;
+    border-radius: 0 1rem 1rem 0;
+}
+
+#data-table {
+    display: grid;
+    gap: 12px;
+    width: 50%;
+    background-color: #E7DBCD;
+    padding: 2rem;
+    box-sizing: border-box;
+    border-radius: 1.5rem;
+}
+
+
+.scoreboard {
+    grid-template-columns:100px 5fr 1fr ;
+}
+
+.wordboard {
+    grid-template-columns:5fr 1fr ;
+}
+
+.tableHeader{
+    font-size: 36px;
+    font-weight: 500;
+    border-bottom: #0B132B 5px solid;
+}
+
+.row {
+    color: #0B132B;
+    font-size: 24px;
 }

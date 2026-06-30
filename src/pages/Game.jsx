@@ -11,7 +11,7 @@ export default function Game(){
     <div id='container'>
         <Timer />
         <WordInput />
-        <DataTable />
+        <DataTable showIndex={false}/>
     </div>
     )
 }
