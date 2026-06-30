@@ -8,7 +8,7 @@ export default defineConfig({
     proxy: {
 
       '/api': {
-        target: 'https://word-api-hmlg.vercel.app/api',
+        target: 'https://word-api-hmlg.vercel.app',
         changeOrigin: true,
         secure: false,
       }
