@@ -1,9 +1,10 @@
-import {useState } from "react";
+import {useState, useEffect} from "react";
 
 import "./word_input.css"
 
 export default function WordInput({onAction, error}){
     const [nombre, setNombre] = useState("")
+    const [shake, setShake] = useState(false)
     const handleWordInput = (e)=>{
         e.preventDefault();
         const parsed = nombre.trim()
@@ -13,8 +14,13 @@ export default function WordInput({onAction, error}){
 
     }
 
+    useEffect(() => {
+        if (error) {
+            setShake(true);
+        }
+    }, [error]);
     return (
-    <form id="word--input" onSubmit={handleWordInput}>
+    <form id="word--input" className={shake ? "shake-animation" : ""} onSubmit={handleWordInput} onAnimationEnd={() => setShake(false)}>
         <input 
             type="text"
             value={nombre}
