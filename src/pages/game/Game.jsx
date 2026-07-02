@@ -30,22 +30,16 @@ export default function Game(){
         }
         
         
-        const [isValid, palabraYPuntaje, message] = await validarPalabra(palabrasUsadas, palabra);
+        const {isValid, palabraYPuntaje, message} = await validarPalabra(palabrasUsadas, palabra);
         
         
         if(isValid){    
-            console.log(palabraYPuntaje)
             setPalabrasUsadas([palabraYPuntaje, ...palabrasUsadas])
             setResetTimer(!resetTimer)
             setPuntaje(puntaje + palabraYPuntaje.puntos)
         }else{
             setError(message)
         }
-    }
-
-
-    const startGame = () => {
-    
     }
 
     const actualizarNombre = (nombre)=>{
@@ -60,6 +54,7 @@ export default function Game(){
     if (nombre === ""){
         return <div id="container"> <NameForm update={actualizarNombre} /> </div> 
     }
+
     return(
     <div id='container'>
         <Timer onTimeUp={gameOver} active={isPlaying} trigger={resetTimer}/>
