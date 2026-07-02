@@ -30,13 +30,13 @@ export default function Game(){
         }
         
         
-        const {isValid, palabraYPuntaje, message} = await validarPalabra(palabrasUsadas, palabra);
-        
+        const {isValid, nuevaPalabra, message} = await validarPalabra(palabrasUsadas, palabra);
+        console.log(isValid, nuevaPalabra,message)
         
         if(isValid){    
-            setPalabrasUsadas([palabraYPuntaje, ...palabrasUsadas])
+            setPalabrasUsadas([nuevaPalabra, ...palabrasUsadas])
             setResetTimer(!resetTimer)
-            setPuntaje(puntaje + palabraYPuntaje.puntos)
+            setPuntaje(puntaje + nuevaPalabra.puntos)
         }else{
             setError(message)
         }

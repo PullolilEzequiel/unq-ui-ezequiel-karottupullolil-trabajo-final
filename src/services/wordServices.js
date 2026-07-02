@@ -1,7 +1,8 @@
+import axios from "axios";
 export default async function validarPalabra(palabras, palabra) {
     const word = palabra.trim().toLowerCase();
     const puntaje = word.length;
-
+    console.log(palabras, palabra)
     if (word.length >= 36) {
         return { isValid: false, message: "La palabra excede el máximo permitido" };
     }
@@ -34,6 +35,7 @@ export default async function validarPalabra(palabras, palabra) {
             return { isValid: false, message: `La palabra "${word}" no existe` };
         }
     } catch (error) {
+        console.error(error)
         const message = error.response && error.response.status === 400
             ? `Palabra inválida "${word}"`
             : "Error de comunicación con el servidor";
