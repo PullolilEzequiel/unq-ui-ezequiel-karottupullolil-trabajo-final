@@ -21,6 +21,28 @@ body {
     overflow-y: none;
 }
 
+.message {
+    padding: 2.5rem;
+    background-color: #E7DBCD;
+    border-radius: 1rem;
+}
+
+#lose-actions{
+    display: flex;
+    width: 100%;
+    max-width: 750px;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+#lose-actions > button {
+    background-color: #E7DBCD;
+    padding: 1rem;
+    border-radius: 1rem;
+    font-size: 24px;
+}
+
+
 .error {
     background-color: #D94E4E;
     padding: 1rem;

@@ -1,8 +1,8 @@
-export default function TableRow({indice, palabra, puntos, showIndex}){
+export default function TableRow({indice, identificador, puntos, showIndex}){
     return (
         <>
             {showIndex && <div className="row">{indice}</div>}
-            <div className="row">{palabra}</div>
+            <div className="row">{identificador}</div>
             <div className="row">{puntos}</div>
         </>
     )

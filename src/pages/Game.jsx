@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react"
-import DataTable from "../components/DataTable";
 import Timer from "../components/Timer";
 import WordInput from "../components/WordInput";
 import "../index.css";
@@ -7,6 +6,7 @@ import {  useNavigate } from "react-router-dom";
 import validarPalabra from "../services/wordServices";
 import { guardarPuntaje, obtenerNombre, cambiarNombre} from "../services/userServices";
 import NameForm from "../components/NameForm";
+import TablaDePalabras from "../components/TablaDePalabras";
 
 export default function Game(){
     const navigate = useNavigate();
@@ -63,7 +63,7 @@ export default function Game(){
     <div id='container'>
         <Timer onTimeUp={gameOver} active={isPlaying} trigger={resetTimer}/>
         <WordInput onAction={agregarPalabra} error={error} />
-        <DataTable  data={palabrasUsadas} showIndex={false} puntaje={puntaje}/>
+        <TablaDePalabras data={palabrasUsadas} puntaje={puntaje}/>
     </div>
     )
 }

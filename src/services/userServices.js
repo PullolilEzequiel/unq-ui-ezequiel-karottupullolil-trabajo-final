@@ -1,5 +1,9 @@
 export function guardarPuntaje(puntajeTotal) {
     const nombre = localStorage.getItem("nombre");
+
+    if (!nombre) {
+        throw new Error("No existe nombre")
+    }
     const puntajesActualesRaw = localStorage.getItem("puntajes");
     const listaPuntajes = puntajesActualesRaw ? JSON.parse(puntajesActualesRaw) : [];
 
@@ -18,4 +22,12 @@ export function cambiarNombre(nombre) {
 
 export function obtenerNombre() {
     return localStorage.getItem("nombre") || ""
+}
+
+export function obtenerPuntajes() {
+    return JSON.parse(localStorage.getItem("puntajes")) || []
+}
+
+export function vaciarNombre() {
+    localStorage.setItem("nombre", "")
 }
