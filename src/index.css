@@ -19,9 +19,15 @@ body {
 
 .error {
     background-color: #D94E4E;
+    color: #E7DBCD;
+    border-radius: 1rem;
     padding: 1rem;
+    visibility: hidden;
 }
 
+.visible {
+    visibility: visible;
+}
 #timer {
     background-color: #E7DBCD;
     color: #0B132B;

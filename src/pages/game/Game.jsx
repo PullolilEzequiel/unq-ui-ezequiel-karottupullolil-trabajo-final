@@ -55,10 +55,13 @@ export default function Game(){
         return <div id="container"> <NameForm update={actualizarNombre} /> </div> 
     }
 
+    const errorClassName = error != "" ? "error visible" : "error"
+
     return(
     <div id='container'>
         <Timer onTimeUp={gameOver} active={isPlaying} trigger={resetTimer}/>
         <WordInput onAction={agregarPalabra} error={error} />
+        <div className={errorClassName}>{error}</div>
         <TablaDePalabras data={palabrasUsadas} puntaje={puntaje}/>
     </div>
     )

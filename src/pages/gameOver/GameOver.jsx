@@ -25,6 +25,7 @@ export default function GameOver(){
             <button onClick={volerAtras} className="back-button" >Volver a jugar</button>
             <button onClick={volerAtrasYCambiarNombre} className="back-button" >Cambiar nombre y volver a jugar</button>
         </div>
+        <div></div> 
         <TablaDePuntajes data={puntajesData} />
     </div>
 }
