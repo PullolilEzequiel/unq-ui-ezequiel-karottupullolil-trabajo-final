@@ -63,7 +63,8 @@ body {
     padding: 0 2rem;
     background-color: #1C2541;
     color: #E7DBCD;
-    border-radius: 0 1rem 1rem 0;
+    border-radius: 0 3rem 3rem 0;
+    font-size: 1.5rem;
 }
 
 #table-container{
@@ -111,7 +112,7 @@ body {
     background-color: #E7DBCD;
     font-size: 36px;
     font-weight: 500;
-    border-bottom: #0B132B 5px solid;
+    border-bottom: 2px solid #1C2541;
     padding-top: 2rem;
     padding-bottom: 1rem;
     z-index: 2;
@@ -125,4 +126,18 @@ body {
     align-items: center;
     margin-bottom: 10px;
 }
+.tableTotal {
+    display: flex;
+    justify-content: space-between;
+    background-color: #1C2541;
+    color: #E7DBCD;           
+    font-size: 24px;
+    font-weight: bold;
+    z-index: 2;
+    padding: 10px 0;
+    border-top: #0B132B 3px solid;
+}
 
+.tableTotal > span{
+    margin: 0 1rem;
+}

@@ -20,7 +20,7 @@ export default function WordInput({onAction, error}){
             name="palabra"
             onChange={e=>setNombre(e.target.value)}
              />
-        <button>Send</button>
+        <button>Enviar</button>
     </form>
     
     );

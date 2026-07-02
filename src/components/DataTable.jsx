@@ -1,5 +1,5 @@
 import TableRow from "./TableRow";
-export default function DataTable({showIndex, data= []}){
+export default function DataTable({showIndex, data= [], puntaje}){
 return (
 <div id="table-container">
     <div id="data-table" className={showIndex ? "scoreboard" : "wordboard"}>
@@ -9,7 +9,14 @@ return (
         {data.map((item, indice)=>
             <TableRow key={indice} indice={indice+1} palabra={item.palabra} puntos={item.puntos} showIndex={showIndex}/>
         )}
+
     </div>
+    
+    <div className="tableTotal">
+        <span>Total</span>
+        <span>{puntaje}</span>
+    </div>
+
 </div>    
 );
 }
