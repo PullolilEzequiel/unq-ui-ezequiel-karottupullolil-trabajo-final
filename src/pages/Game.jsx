@@ -1,10 +1,12 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import DataTable from "../components/DataTable";
 import Timer from "../components/Timer";
 import WordInput from "../components/WordInput";
 import "../index.css";
 import {  useNavigate } from "react-router-dom";
 import validarPalabra from "../services/wordServices";
+import { guardarPuntaje, obtenerNombre, cambiarNombre} from "../services/userServices";
+import NameForm from "../components/NameForm";
 
 export default function Game(){
     const navigate = useNavigate();
@@ -13,8 +15,11 @@ export default function Game(){
     const [error, setError] = useState("")
     const [resetTimer, setResetTimer] = useState(false);
     const [puntaje, setPuntaje] = useState(0)
+
+    const [nombre, setNombre] = useState("")
     const gameOver = ()=>{
         setPlaying(false)
+        guardarPuntaje(puntaje) 
         navigate("/game-over")
     }
 
@@ -40,6 +45,19 @@ export default function Game(){
 
     const startGame = () => {
     
+    }
+
+    const actualizarNombre = (nombre)=>{
+        cambiarNombre(nombre)
+        setNombre(nombre)
+    }
+
+    useEffect(()=>{
+        setNombre(obtenerNombre())
+    }, [])
+
+    if (nombre === ""){
+        return <div id="container"> <NameForm update={actualizarNombre} /> </div> 
     }
     return(
     <div id='container'>

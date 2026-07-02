@@ -6,7 +6,7 @@ return (
         {showIndex && <div className="tableHeader">Posición</div>}
         <div className="tableHeader">Nombre</div>
         <div className="tableHeader">Puntaje</div>
-        {data.map((item, indice)=>
+        {data && data.map((item, indice)=>
             <TableRow key={indice} indice={indice+1} palabra={item.palabra} puntos={item.puntos} showIndex={showIndex}/>
         )}
 
