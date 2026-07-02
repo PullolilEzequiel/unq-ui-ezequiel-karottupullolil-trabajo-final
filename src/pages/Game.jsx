@@ -11,6 +11,7 @@ export default function Game(){
     const [isPlaying, setPlaying] = useState(false);
     const [palabrasUsadas, setPalabrasUsadas]=useState([]);
     const [error, setError] = useState("")
+    const [resetTimer, setResetTimer] = useState(false);
     const gameOver = ()=>{
         //navigate("/game-over")
         setPlaying(false)
@@ -24,8 +25,10 @@ export default function Game(){
         
         
         const [isValid, palabraYPuntaje, message] = await validarPalabra(palabra);
-
-        if(isValid){
+        
+        
+        if(isValid){    
+            setResetTimer(!resetTimer)
             setPalabrasUsadas([...palabrasUsadas, palabraYPuntaje])
         }else{
             setError(message)
@@ -38,9 +41,10 @@ export default function Game(){
     }
     return(
     <div id='container'>
-        <Timer onTimeUp={gameOver} active={isPlaying}/>
+        <Timer onTimeUp={gameOver} active={isPlaying} trigger={resetTimer}/>
         <WordInput onAction={agregarPalabra}/>
-        {error != "" && <div className="error">{error}</div>}
+        {/* TODO: cambiar por comportamiento especial de WordInput */}
+        {error != "" && <div className="error">{error}</div>} 
         <DataTable  data={palabrasUsadas} showIndex={false}/>
     </div>
     )
