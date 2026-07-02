@@ -1,4 +1,4 @@
-import TableRow from "./TableRow";
+import TableRow from "./TableRow.jsx"
 import "./tables.css"
 export default function TablaDePuntajes({ data= []}){
 return (

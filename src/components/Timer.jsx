@@ -24,7 +24,7 @@ export default function Timer({onTimeUp, active, trigger}){
     useEffect(()=>{
         if (trigger === 0) return;
         setTime(TIEMPO_INICIAL)
-        console.log("hola")
+        
     }, [trigger])
     return <div id='timer'>{time}</div>
 }

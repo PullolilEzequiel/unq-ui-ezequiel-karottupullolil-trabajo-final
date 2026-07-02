@@ -2,14 +2,14 @@ import axios from "axios";
 
 
 export default async function validarPalabra(palabras, palabra) {
-    const word = palabra.trim()
+    const word = palabra.trim().toLowerCase();
     const puntaje = word.length;
 
     if (word.length >= 36) {
         return [false, undefined, "La palabra excede el maximo permitido"]
     }
 
-    if (palabras.some(e => e.palabra == word)) {
+    if (palabras.some(e => e.palabra.toLowerCase() == word)) {
         return [false, undefined, `La palabra ${palabra} ya fue usada`]
     }
 
@@ -17,7 +17,7 @@ export default async function validarPalabra(palabras, palabra) {
         const ultimaPalabraValida = palabras[0].palabra;
 
         const ultimaLetra = ultimaPalabraValida.at(-1).toLowerCase();
-        const primeraLetraNueva = word[0].toLowerCase();
+        const primeraLetraNueva = word[0]
         if (ultimaLetra !== primeraLetraNueva) {
             return [
                 false,
@@ -28,7 +28,7 @@ export default async function validarPalabra(palabras, palabra) {
     }
 
     try {
-        const response = await axios.get(`/api/validate?word=${palabra}`)
+        const response = await axios.get(`/api/validate?word=${word}`)
 
         return [
             response.data.exists,

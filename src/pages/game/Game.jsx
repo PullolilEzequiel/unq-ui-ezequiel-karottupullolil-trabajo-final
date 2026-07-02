@@ -34,6 +34,7 @@ export default function Game(){
         
         
         if(isValid){    
+            console.log(palabraYPuntaje)
             setPalabrasUsadas([palabraYPuntaje, ...palabrasUsadas])
             setResetTimer(!resetTimer)
             setPuntaje(puntaje + palabraYPuntaje.puntos)
