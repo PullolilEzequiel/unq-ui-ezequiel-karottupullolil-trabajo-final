@@ -12,7 +12,7 @@ return (
             key={indice}
             indice={indice+1}
             identificador={item.nombre}
-            puntos={item.puntos}
+            puntos={item.puntajeTotal}
             showIndex={true}/>
         )}
 

@@ -21,6 +21,7 @@ export default function WordInput({onAction, error}){
             placeholder={error != "" ? error : "Tu palabra es..."}
             className={`word-text-field ${error ? "error-input" : ""}`}
             name="palabra"
+            autoComplete="off"
             onChange={e=>setNombre(e.target.value)}
              />
         <button>Enviar</button>

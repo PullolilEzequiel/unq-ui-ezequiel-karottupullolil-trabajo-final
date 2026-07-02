@@ -13,6 +13,7 @@ export default function NameForm({update}){
                     value={nombre}
                     placeholder="Tu nombre es..."
                     className="word-text-field"
+                    autoComplete="off"
                     onChange={e=> setNombre(e.target.value)} />
 
             <button>Enviar</button>
