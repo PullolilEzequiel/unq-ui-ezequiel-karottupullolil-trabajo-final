@@ -21,6 +21,11 @@ body {
     overflow-y: none;
 }
 
+.error {
+    background-color: #D94E4E;
+    padding: 1rem;
+}
+
 #timer {
     background-color: #E7DBCD;
     color: #0B132B;
