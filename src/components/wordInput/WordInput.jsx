@@ -9,9 +9,9 @@ export default function WordInput({onAction, error}){
         e.preventDefault();
         const parsed = nombre.trim()
         if(!parsed) return;
-        setNombre("")
+        
         onAction(parsed)
-
+        setNombre("")
     }
 
     useEffect(() => {

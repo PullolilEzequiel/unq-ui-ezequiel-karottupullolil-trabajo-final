@@ -4,11 +4,11 @@ export default async function validarPalabra(palabras, palabra) {
     const puntaje = word.length;
     console.log(palabras, palabra)
     if (word.length >= 36) {
-        return { isValid: false, message: "La palabra excede el máximo permitido" };
+        return { isValid: false, message: "La palabra no existe" };
     }
 
     if (palabras.some(e => e.palabra.toLowerCase() === word)) {
-        return { isValid: false, message: `La palabra "${palabra}" ya fue usada` };
+        return { isValid: false, message: `La palabra "${palabra}" ya fue utilizada` };
     }
 
     if (palabras.length > 0) {
