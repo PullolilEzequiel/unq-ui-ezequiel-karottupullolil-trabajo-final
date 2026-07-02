@@ -24,7 +24,7 @@ export default function Game(){
         }
         
         
-        const [isValid, palabraYPuntaje, message] = await validarPalabra(palabra);
+        const [isValid, palabraYPuntaje, message] = await validarPalabra(palabrasUsadas, palabra);
         
         
         if(isValid){    
@@ -37,7 +37,7 @@ export default function Game(){
 
 
     const startGame = () => {
-
+    
     }
     return(
     <div id='container'>
