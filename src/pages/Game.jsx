@@ -29,7 +29,7 @@ export default function Game(){
         
         if(isValid){    
             setResetTimer(!resetTimer)
-            setPalabrasUsadas([...palabrasUsadas, palabraYPuntaje])
+            setPalabrasUsadas([palabraYPuntaje, ...palabrasUsadas])
         }else{
             setError(message)
         }
@@ -42,9 +42,7 @@ export default function Game(){
     return(
     <div id='container'>
         <Timer onTimeUp={gameOver} active={isPlaying} trigger={resetTimer}/>
-        <WordInput onAction={agregarPalabra}/>
-        {/* TODO: cambiar por comportamiento especial de WordInput */}
-        {error != "" && <div className="error">{error}</div>} 
+        <WordInput onAction={agregarPalabra} error={error}/>
         <DataTable  data={palabrasUsadas} showIndex={false}/>
     </div>
     )

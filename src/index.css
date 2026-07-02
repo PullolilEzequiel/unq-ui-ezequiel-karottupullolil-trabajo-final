@@ -43,13 +43,19 @@ body {
     max-width: 750px;
 }
 
-#word--input > input {
+.word-text-field {
     width: 100%;
     background-color: #E7DBCD;
     padding: 1.5rem;
     border-radius: 1rem 0 0 1rem;
     font-size: 24px;
     color: #1C2541;
+}
+
+.word-text-field.error-input{
+    background-color: #D94E4E;
+    color: #ffff;
+    font: 900 bold;
 }
 
 #word--input > button {

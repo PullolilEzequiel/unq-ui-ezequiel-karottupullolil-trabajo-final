@@ -13,8 +13,6 @@ export default async function validarPalabra(palabras, palabra) {
         return [false, undefined, "La palabra excede el maximo permitido"]
     }
 
-
-
     const response = await axios.get(`/api/validate?word=${palabra}`)
 
     if (response.status == 400) {

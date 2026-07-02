@@ -1,20 +1,22 @@
-import { useState } from "react";
-export default function WordInput({onAction}){
+import { useEffect, useState } from "react";
+export default function WordInput({onAction, error}){
     const [nombre, setNombre] = useState("")
     const handleWordInput = (e)=>{
         e.preventDefault();
         const parsed = nombre.trim()
         if(!parsed) return;
-
-        onAction(parsed)
         setNombre("")
+        onAction(parsed)
+
     }
+
     return (
     <form id="word--input" onSubmit={handleWordInput}>
         <input 
             type="text"
             value={nombre}
-            placeholder="Tu palabra es..."
+            placeholder={error != "" ? error : "Tu palabra es..."}
+            className={`word-text-field ${error ? "error-input" : ""}`}
             name="palabra"
             onChange={e=>setNombre(e.target.value)}
              />
