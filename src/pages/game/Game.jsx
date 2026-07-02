@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react"
-import Timer from "../components/Timer";
-import WordInput from "../components/WordInput";
-import "../index.css";
+import Timer from "../../components/Timer";
+import WordInput from "../../components/wordInput/WordInput";
+import "./game.css"
 import {  useNavigate } from "react-router-dom";
-import validarPalabra from "../services/wordServices";
-import { guardarPuntaje, obtenerNombre, cambiarNombre} from "../services/userServices";
-import NameForm from "../components/NameForm";
-import TablaDePalabras from "../components/TablaDePalabras";
+import validarPalabra from "../../services/wordServices";
+import { guardarPuntaje, obtenerNombre, cambiarNombre} from "../../services/userServices";
+import NameForm from "../../components/NameForm";
+import TablaDePalabras from "../../components/tables/TablaDePalabras";
 
 export default function Game(){
     const navigate = useNavigate();

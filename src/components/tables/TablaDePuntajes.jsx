@@ -1,4 +1,5 @@
 import TableRow from "./TableRow";
+import "./tables.css"
 export default function TablaDePuntajes({ data= []}){
 return (
 <div id="table-container">

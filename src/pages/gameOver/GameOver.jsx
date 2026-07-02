@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-import { obtenerPuntajes, vaciarNombre } from "../services/userServices";
-import TablaDePuntajes from "../components/TablaDePuntajes";
+import { obtenerPuntajes, vaciarNombre } from "../../services/userServices";
+import TablaDePuntajes from "../../components/tables/TablaDePuntajes";
 import { useNavigate } from "react-router-dom";
 
+import "./gameOver.css"
 export default function GameOver(){
     const navigate = useNavigate();
     const [puntajesData, setData] = useState([]);

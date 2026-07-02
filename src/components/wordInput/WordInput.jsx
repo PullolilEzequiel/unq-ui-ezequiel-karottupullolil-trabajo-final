@@ -1,4 +1,7 @@
-import { useEffect, useState } from "react";
+import {useState } from "react";
+
+import "./word_input.css"
+
 export default function WordInput({onAction, error}){
     const [nombre, setNombre] = useState("")
     const handleWordInput = (e)=>{

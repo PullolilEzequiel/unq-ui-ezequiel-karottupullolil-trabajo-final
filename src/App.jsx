@@ -1,10 +1,10 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import Game from './pages/Game'
-import GameOver from './pages/GameOver'
+import Game from './pages/game/Game'
+import GameOver from './pages/gameOver/GameOver'
 import About from './pages/About'
 
 
-import './App.css'
+import './index.css'
 function App() {
   return (
     <BrowserRouter>

@@ -1,0 +1,15 @@
+#lose-actions{
+    display: flex;
+    width: 100%;
+    max-width: 750px;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+#lose-actions > button {
+    background-color: #E7DBCD;
+    padding: 1rem;
+    border-radius: 1rem;
+    font-size: 24px;
+}
+
