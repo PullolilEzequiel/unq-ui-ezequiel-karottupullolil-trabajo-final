@@ -8,7 +8,7 @@
 #word-button{
     width: fit-content;
     padding: 0 2rem;
-    border-radius: 0 3rem 3rem 0;
+    border-radius: 0 1rem 1rem 0;
     font-size: 1.5rem;
     border: none;
 }

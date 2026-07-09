@@ -76,26 +76,55 @@
     }
 }
 
-#timer {
-    padding: 2rem 5rem;
-    border-radius: 10px;
-    font-weight: 600;
-    font-size: 26px;
-    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+
+.timer-container {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-#timer.tick {
-    background-color: #E7DBCD;
-    color: #0B132B;
+
+.timer-svg {
+    transform: rotate(-90deg);
+    width: 100px;
+    height: 100px;
 }
 
-#timer.wait {
-    background-color: #5a554f;
+.timer-circle-bg {
+    fill: transparent;
+    stroke: rgba(28, 37, 65, 0.2);
+    stroke-width: 8px;
+}
+
+
+.timer-circle-progress {
+    fill: transparent;
+    stroke: #E7DBCD;
+    stroke-width: 8px;
+    stroke-linecap: round;
+    transition: stroke-dashoffset 1s linear, stroke 0.3s ease;
+}
+
+.timer-number {
+    position: absolute;
+    font-size: 28px;
+    font-weight: bold;
     color: #E7DBCD;
+    font-variant-numeric: tabular-nums;
 }
 
-#timer.error {
-    background-color: #b8336a;
-    color: #E7DBCD;
+
+.timer-container.wait .timer-circle-progress {
+    stroke: #5a554f;
+}
+.timer-container.wait .timer-number {
+    color: #5a554f;
 }
 
+@keyframes pulse {
+    from { transform: scale(1); }
+    to { transform: scale(1.05); }
+}
