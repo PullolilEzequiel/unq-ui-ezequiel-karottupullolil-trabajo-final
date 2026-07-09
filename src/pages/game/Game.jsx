@@ -19,7 +19,6 @@ export default function Game() {
     const [nombre, setNombre] = useState("")
     const [ultimaLetra, setUltimaLetra] = useState("")
     const [isValidating, setIsValidating] = useState(false);
-    const [keyActual, setKeyActual] = useState(0)
     const gameOver = () => {
         setPlaying(false)
         navigate("/game-over", {state: {id: generarId(), puntaje, cantidadDePalabrasValidas}})
@@ -48,7 +47,6 @@ export default function Game() {
                 cantidadDePalabrasValidas + 1
             )
             setUltimaLetra(ultimaLetra)
-            setKeyActual(prev => prev + 1);
         } else {
             setError(message)
         }
@@ -73,7 +71,6 @@ export default function Game() {
             {nombre === "" && <NameModal onChangeName={handleUsuario}/>}
             <Timer validating={isValidating} onTimeUp={gameOver} active={isPlaying} trigger={resetTimer}/>
             <WordInput
-                key={cantidadDePalabrasValidas}
                 ultimaLetra={ultimaLetra}
                 validating={isValidating}
                 onAction={agregarPalabra}

@@ -11,6 +11,8 @@ export default function WordInput({ultimaLetra, onAction, error, validating}) {
         if (!parsed) return;
 
         onAction(parsed)
+
+        setNombre("")
     }
 
     useEffect(() => {
@@ -18,14 +20,21 @@ export default function WordInput({ultimaLetra, onAction, error, validating}) {
             setShake(true);
         }
 
-        if (ultimaLetra) {
-            setNombre(ultimaLetra);
-        } else {
-            setNombre("");
-        }
-    }, [error, ultimaLetra]);
+    }, [error]);
 
     const freezeClass = validating ? "freeze" : "unfreeze"
+    let placeHolderMsg = "Tu palabra es... "
+    if(ultimaLetra){
+        placeHolderMsg = `Empezá con ${ultimaLetra.toUpperCase()}`
+    }
+
+    if(validating){
+        placeHolderMsg = `Esperando respuesta de la API`
+    }
+    if(error){
+        placeHolderMsg = error
+    }
+    // {error ? error : ultimaLetra ? `Empezá con "${ultimaLetra.toUpperCase()}"...` : "Tu palabra es..."}
     return (
         <form id="word--input" className={shake ? "shake-animation" : ""} onSubmit={handleWordInput}
               onAnimationEnd={() => setShake(false)}>
@@ -33,7 +42,7 @@ export default function WordInput({ultimaLetra, onAction, error, validating}) {
                 autoFocus={true}
                 type="text"
                 value={nombre}
-                placeholder={error !== "" ? error : "Tu palabra es..."}
+                placeholder={placeHolderMsg}
                 className={`word-text-field ${error ? "error-input" : validating ? "freeze" : "unfreeze"}`}
                 name="palabra"
                 autoComplete="off"
