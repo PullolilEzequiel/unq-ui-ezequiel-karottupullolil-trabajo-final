@@ -11,10 +11,10 @@ export function guardarPuntaje(puntajeTotal, cantidadDePalabras) {
     }
     const puntajesActualesRaw = localStorage.getItem("puntajes");
     const listaPuntajes = puntajesActualesRaw ? JSON.parse(puntajesActualesRaw) : [];
-    if(!seTieneQueRegistrar(listaPuntajes, puntajeTotal)){
-        return ;
+    if (!seTieneQueRegistrar(listaPuntajes, puntajeTotal)) {
+        return;
     }
-    listaPuntajes.push({ nombre, puntajeTotal, cantidadDePalabras })
+    listaPuntajes.push({nombre, puntajeTotal, cantidadDePalabras})
 
     listaPuntajes.sort((a, b) => b.puntajeTotal - a.puntajeTotal);
 
@@ -30,9 +30,9 @@ export function guardarPuntaje(puntajeTotal, cantidadDePalabras) {
  * @param puntajeTotal el puntaje a registrar
  * @returns {boolean}
  */
-function seTieneQueRegistrar(listaPuntajes, puntajeTotal){
+function seTieneQueRegistrar(listaPuntajes, puntajeTotal) {
 
-    if(listaPuntajes.length < 10){
+    if (listaPuntajes.length < 10) {
         return true
     }
 

@@ -1,9 +1,9 @@
 
-.word-text-field.error-input{
+.word-text-field.error-input {
     background-color: #D94E4E;
     color: #ffff;
     font-size: 900px;
-    font-family: bold;
+    font-weight: bold;
 }
 
 #word--input > button {
@@ -17,10 +17,17 @@
 }
 
 @keyframes shake {
-    0%, 100% { transform: translateX(0); }
-    20%, 60% { transform: translateX(-6px); }
-    40%, 80% { transform: translateX(6px); }
+    0%, 100% {
+        transform: translateX(0);
+    }
+    20%, 60% {
+        transform: translateX(-6px);
+    }
+    40%, 80% {
+        transform: translateX(6px);
+    }
 }
+
 .shake-animation {
     animation: shake 0.35s ease-in-out;
 }

@@ -1,4 +1,4 @@
-#table-container{
+#table-container {
     width: 50%;
     background-color: #E7DBCD;
 
@@ -20,24 +20,24 @@
 }
 
 #data-table:hover {
-    overflow-y: auto; 
+    overflow-y: auto;
 }
 
 
 .scoreboard {
-    grid-template-columns:100px 5fr 1fr 5fr ;
-    
+    grid-template-columns:100px 5fr 1fr 5fr;
+
 }
 
 .wordboard {
-    grid-template-columns:5fr 1fr ;
+    grid-template-columns:5fr 1fr;
 }
 
-.tableHeader{
+.tableHeader {
     display: flex;
     position: sticky;
     top: 0;
-    
+
 
     align-items: center;
     background-color: #E7DBCD;
@@ -57,11 +57,12 @@
     align-items: center;
     margin-bottom: 10px;
 }
+
 .tableTotal {
     display: flex;
     justify-content: space-between;
     background-color: #1C2541;
-    color: #E7DBCD;           
+    color: #E7DBCD;
     font-size: 24px;
     font-weight: bold;
     z-index: 2;
@@ -69,6 +70,6 @@
     border-top: #0B132B 3px solid;
 }
 
-.tableTotal > span{
+.tableTotal > span {
     margin: 0 1rem;
 }

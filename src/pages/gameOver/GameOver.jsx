@@ -4,15 +4,16 @@ import TablaDePuntajes from "../../components/tables/TablaDePuntajes";
 import {useLocation, useNavigate} from "react-router-dom";
 
 import "./gameOver.css"
-export default function GameOver(){
+
+export default function GameOver() {
     const location = useLocation();
     const navigate = useNavigate();
     const [puntajesData, setData] = useState([]);
     const puntajeRegistrado = useRef(false);
-    const { puntaje = 0, cantidadDePalabrasValidas = 0 } = location.state || {};
-    useEffect(()=>{
+    const {puntaje = 0, cantidadDePalabrasValidas = 0} = location.state || {};
+    useEffect(() => {
 
-        if(puntajeRegistrado.current) return;
+        if (puntajeRegistrado.current) return;
 
         puntajeRegistrado.current = true;
         if (location.state) {
@@ -24,11 +25,11 @@ export default function GameOver(){
         setData(obtenerPuntajes())
     }, [])
 
-    const volerAtras = ()=>{
+    const volerAtras = () => {
         navigate("/")
     }
 
-    const volerAtrasYCambiarNombre = ()=>{
+    const volerAtrasYCambiarNombre = () => {
         vaciarNombre()
         volerAtras()
     }
@@ -42,10 +43,10 @@ export default function GameOver(){
             <p>Palabras encadenadas: <strong>{cantidadDePalabrasValidas}</strong></p>
         </div>
         <div id="lose-actions">
-            <button onClick={volerAtras} className="back-button" >Volver a jugar</button>
-            <button onClick={volerAtrasYCambiarNombre} className="back-button" >Cambiar nombre y volver a jugar</button>
+            <button onClick={volerAtras} className="back-button">Volver a jugar</button>
+            <button onClick={volerAtrasYCambiarNombre} className="back-button">Cambiar nombre y volver a jugar</button>
         </div>
 
-        <TablaDePuntajes data={puntajesData} />
+        <TablaDePuntajes data={puntajesData}/>
     </div>
 }

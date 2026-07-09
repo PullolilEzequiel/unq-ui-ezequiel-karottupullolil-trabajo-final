@@ -1,14 +1,15 @@
 import axios from "axios";
+
 export default async function validarPalabra(palabras, palabra) {
     const word = palabra.trim().toLowerCase();
     const puntaje = word.length;
     console.log(palabras, palabra)
     if (word.length >= 36) {
-        return { isValid: false, message: "La palabra no existe" };
+        return {isValid: false, message: "La palabra no existe"};
     }
 
     if (palabras.some(e => e.palabra.toLowerCase() === word)) {
-        return { isValid: false, message: `La palabra "${palabra}" ya fue utilizada` };
+        return {isValid: false, message: `La palabra "${palabra}" ya fue utilizada`};
     }
 
     if (palabras.length > 0) {
@@ -29,10 +30,10 @@ export default async function validarPalabra(palabras, palabra) {
         if (response.data.exists) {
             return {
                 isValid: true,
-                nuevaPalabra: { palabra: word, puntos: puntaje }
+                nuevaPalabra: {palabra: word, puntos: puntaje}
             };
         } else {
-            return { isValid: false, message: `La palabra "${word}" no existe` };
+            return {isValid: false, message: `La palabra "${word}" no existe`};
         }
     } catch (error) {
         console.error(error)
@@ -40,6 +41,6 @@ export default async function validarPalabra(palabras, palabra) {
             ? `Palabra inválida "${word}"`
             : "Error de comunicación con el servidor";
 
-        return { isValid: false, message };
+        return {isValid: false, message};
     }
 }
