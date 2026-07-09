@@ -27,9 +27,7 @@ export default function Game() {
     const agregarPalabra = async (palabra) => {
         if (isValidating) return;
         setError("")
-        if (!isPlaying) {
-            setPlaying(true)
-        }
+
 
         setIsValidating(true);
         const {
@@ -47,6 +45,10 @@ export default function Game() {
                 cantidadDePalabrasValidas + 1
             )
             setUltimaLetra(ultimaLetra)
+
+            if (!isPlaying) {
+                setPlaying(true)
+            }
         } else {
             setError(message)
         }
