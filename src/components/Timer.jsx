@@ -1,13 +1,17 @@
-import {useEffect, useState} from "react"
+import {useEffect, useRef, useState} from "react"
 
 export default function Timer({onTimeUp, active, trigger}) {
     const TIEMPO_INICIAL = 15;
     const [time, setTime] = useState(15);
 
+    const onTimeUpRef = useRef(onTimeUp);
+    useEffect(() => {
+        onTimeUpRef.current = onTimeUp;
+    }, [onTimeUp]);
+
     const handleTime = (tiempoActual) => {
         if (tiempoActual <= 0) {
-            if (onTimeUp) onTimeUp();
-
+            if (onTimeUpRef.current) onTimeUpRef.current();
             return TIEMPO_INICIAL;
         }
 
@@ -19,10 +23,14 @@ export default function Timer({onTimeUp, active, trigger}) {
             setTime(handleTime)
         }, 1000);
         return () => clearInterval(intervalo);
-    }, [active, onTimeUp])
+    }, [active])
 
+    const inicializado = useRef(false);
     useEffect(() => {
-        if (trigger === 0) return;
+        if (!inicializado.current) {
+            inicializado.current = true;
+            return;
+        }
         setTime(TIEMPO_INICIAL)
 
     }, [trigger])
