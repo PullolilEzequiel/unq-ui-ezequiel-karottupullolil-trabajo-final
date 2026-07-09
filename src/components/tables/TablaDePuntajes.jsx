@@ -8,7 +8,7 @@ export default function TablaDePuntajes({data = []}) {
                 <div className="tableHeader">Posición</div>
                 <div className="tableHeader">Nombre</div>
                 <div className="tableHeader">Puntaje</div>
-                <div className="tableHeader">Cantidad de palabras</div>
+                <div className="tableHeader">#palabras</div>
                 {data && data.map((item, indice) =>
                     <TableRow
                         key={indice}

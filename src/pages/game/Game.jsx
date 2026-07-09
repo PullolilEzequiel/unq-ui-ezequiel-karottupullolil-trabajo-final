@@ -72,16 +72,20 @@ export default function Game() {
 
     return (
         <div id='container'>
-            {nombre === "" && <NameModal onChangeName={handleUsuario}/>}
-            <Timer key={resetTimer} validating={isValidating} onTimeUp={gameOver} active={isPlaying} trigger={resetTimer}/>
+
+            <div className="top-section-wrapper">
+                {nombre === "" && <NameModal onChangeName={handleUsuario}/>}
+                <Timer key={resetTimer} validating={isValidating} onTimeUp={gameOver} active={isPlaying} trigger={resetTimer}/>
+            </div>
             <WordInput
                 ultimaLetra={ultimaLetra}
                 validating={isValidating}
                 onAction={agregarPalabra}
                 error={error}/>
             <div className={errorClassName}>{error}</div>
+            <div className="tabla-wrapper-compartida">
             <TablaDePalabras data={palabrasUsadas} puntaje={puntaje} ultimaLetra={ultimaLetra}/>
-
+            </div>
             <button onClick={irApuntajes} className="saltar-puntaje">Ver los mejores 10 puntajes historicos!</button>
         </div>
     )
