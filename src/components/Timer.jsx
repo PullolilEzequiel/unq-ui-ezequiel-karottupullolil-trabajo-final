@@ -5,7 +5,6 @@ export default function Timer({ onTimeUp, active, trigger, validating }) {
     const TIEMPO_INICIAL = 15;
     const [time, setTime] = useState(TIEMPO_INICIAL);
 
-    // Configuración del SVG del círculo
     const RADIUS = 40;
     const CIRCUMFERENCE = 2 * Math.PI * RADIUS;
 

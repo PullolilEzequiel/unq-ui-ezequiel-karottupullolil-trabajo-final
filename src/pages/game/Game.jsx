@@ -80,7 +80,7 @@ export default function Game() {
                 onAction={agregarPalabra}
                 error={error}/>
             <div className={errorClassName}>{error}</div>
-            <TablaDePalabras data={palabrasUsadas} puntaje={puntaje}/>
+            <TablaDePalabras data={palabrasUsadas} puntaje={puntaje} ultimaLetra={ultimaLetra}/>
 
             <button onClick={irApuntajes} className="saltar-puntaje">Ver los mejores 10 puntajes historicos!</button>
         </div>
