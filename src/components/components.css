@@ -45,6 +45,16 @@
     max-width: 750px;
 }
 
+
+#name--input{
+    width: 100%;
+    max-width: 750px;
+}
+#action-container{
+    display: flex;
+    justify-content: space-between;
+}
+
 .word-text-field {
     width: 100%;
     background-color: #E7DBCD;
@@ -122,4 +132,14 @@
 }
 .timer-container.wait .timer-number {
     color: #5a554f;
+}
+
+.modal-button {
+    border: none;
+    outline: none;
+    background-color: #1C2541;
+    color: #E7DBCD;
+
+    padding: 1rem;
+    border-radius: 1rem;
 }

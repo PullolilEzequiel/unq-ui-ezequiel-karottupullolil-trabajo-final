@@ -32,13 +32,15 @@ export default function GameOver() {
         volverAtras()
     }
     return <div id="container">
-        <div className="message">
+        {id ? <div id="resumen-partida">
             <h1>Perdiste!</h1>
-        </div>
-        {id && <div id="resumen-partida">
             <p>Puntaje final: <strong>{puntaje}</strong></p>
             <p>Palabras encadenadas: <strong>{cantidadDePalabrasValidas}</strong></p>
-        </div>}
+        </div> : (
+            <div id="resumen-partida">
+                <h1>Top 10 de las mejores jugadas</h1>
+            </div>
+        )}
 
         <div id="lose-actions">
             <button onClick={volverAtras} className="back-button">Volver a jugar</button>

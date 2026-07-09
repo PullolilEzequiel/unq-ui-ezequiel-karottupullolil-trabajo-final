@@ -73,3 +73,9 @@
 .tableTotal > span {
     margin: 0 1rem;
 }
+
+.ultima-letra-mensaje {
+    padding: 1rem 2rem 0;
+    color: #5a554f;
+    font-size: 18px;
+}

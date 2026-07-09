@@ -48,6 +48,7 @@ export default function WordInput({ultimaLetra, onAction, error, validating}) {
                 autoComplete="off"
                 onChange={e => setNombre(e.target.value)}
                 readOnly={validating}
+                maxLength={36}
             />
             <button disabled={validating} id="word-button" className={buttonClass}>Enviar</button>
         </form>

@@ -31,6 +31,9 @@ export function almacenarPuntaje(puntajeARegistrar){
         return;
     }
 
+    const {id} = puntajeARegistrar;
+    localStorage.setItem("ultimoGameID", id.toString());
+
     listaPuntajes.push(puntajeARegistrar)
 
     listaPuntajes.sort((a, b) => b.puntajeTotal - a.puntajeTotal);
@@ -38,8 +41,7 @@ export function almacenarPuntaje(puntajeARegistrar){
     const top10Puntajes = listaPuntajes.slice(0, 10);
     localStorage.setItem("puntajes", JSON.stringify(top10Puntajes));
 
-    const {id} = puntajeARegistrar;
-    localStorage.setItem("ultimoGameID", id.toString());
+
 }
 
 /**
