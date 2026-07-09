@@ -18,9 +18,8 @@ export default function Game(){
     const [cantidadDePalabrasValidas, setCantidadDePalabras] = useState(0);
     const [nombre, setNombre] = useState("")
     const gameOver = ()=>{
-        setPlaying(false);
-        guardarPuntaje(puntaje, cantidadDePalabrasValidas)
-        navigate("/game-over", {state:{nombre, puntaje, cantidadDePalabrasValidas}})
+        setPlaying(false)
+        navigate("/game-over", {state: {nombre, puntaje, cantidadDePalabrasValidas}})
     }
 
     const agregarPalabra = async (palabra) => {

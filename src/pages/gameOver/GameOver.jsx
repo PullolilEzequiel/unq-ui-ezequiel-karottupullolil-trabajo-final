@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { obtenerPuntajes, vaciarNombre } from "../../services/userServices";
+import {useEffect, useRef, useState} from "react";
+import {guardarPuntaje, obtenerPuntajes, vaciarNombre} from "../../services/userServices";
 import TablaDePuntajes from "../../components/tables/TablaDePuntajes";
 import {useLocation, useNavigate} from "react-router-dom";
 
@@ -8,9 +8,19 @@ export default function GameOver(){
     const location = useLocation();
     const navigate = useNavigate();
     const [puntajesData, setData] = useState([]);
-
+    const puntajeRegistrado = useRef(false);
     const { puntaje = 0, cantidadDePalabrasValidas = 0 } = location.state || {};
     useEffect(()=>{
+
+        if(puntajeRegistrado.current) return;
+
+        puntajeRegistrado.current = true;
+        if (location.state) {
+            guardarPuntaje(puntaje, cantidadDePalabrasValidas)
+
+            navigate(location.pathname, {replace: true, state: null})
+        }
+
         setData(obtenerPuntajes())
     }, [])
 
