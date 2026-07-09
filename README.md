@@ -2,8 +2,7 @@
 Aplicación web desarrollada en React para el **Trabajo Final Integrador** de la materia _Construcción de Interfaces de Usuario_ - UNQ.
 
 ## Descripción
-El juego consiste en formar la cadena más larga posible de palabras válidas antes de que se agote el tiempo. La primera palabra puede ser cualquier palabra válida y será la que inicie la cadena. A partir de la segunda palabra, cada nueva palabra debe comenzar con la última letra de la palabra válida anterior.
-
+**Palabras Encadenadas** es un juego de agilidad mental y vocabulario donde el objetivo es formar la cadena más larga posible de palabras válidas antes de que el cronómetro llegue a cero.
 ### Dinámica del Juego
 * **Inicio:** La partida comienza libre; podés ingresar cualquier palabra que sea válida para inaugurar la cadena.
 * **Encadenamiento:** A partir de la segunda palabra, cada nuevo intento **debe comenzar estrictamente con la última letra** de la palabra válida anterior (ej: *Cas**a*** ➡️ ***A*** rbo*l* ➡️ *Lun**a***).
