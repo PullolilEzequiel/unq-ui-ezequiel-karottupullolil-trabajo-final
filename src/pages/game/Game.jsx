@@ -4,7 +4,7 @@ import WordInput from "../../components/wordInput/WordInput";
 import "./game.css"
 import {useNavigate} from "react-router-dom";
 import validarPalabra from "../../services/wordServices";
-import {crearUsuario, obtenerUsuario} from "../../services/userServices";
+import {crearUsuario, generarId, obtenerUsuario} from "../../services/gameServices.js";
 import TablaDePalabras from "../../components/tables/TablaDePalabras";
 import NameModal from "../../components/NameModal.jsx";
 
@@ -21,7 +21,7 @@ export default function Game() {
     const [isValidating, setIsValidating] = useState(false);
     const gameOver = () => {
         setPlaying(false)
-        navigate("/game-over", {state: {nombre, puntaje, cantidadDePalabrasValidas}})
+        navigate("/game-over", {state: {id: generarId(), puntaje, cantidadDePalabrasValidas}})
     }
 
     const agregarPalabra = async (palabra) => {

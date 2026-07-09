@@ -25,28 +25,37 @@ export function vaciarNombre(){
     localStorage.removeItem("nombre");
 }
 
-export function almacenarPuntaje({nombre, puntajeTotal, cantidadDePalabras}){
+export function almacenarPuntaje(puntajeARegistrar){
     const listaPuntajes = obtenerPuntajes()
-    if (!seTieneQueRegistrar(listaPuntajes, puntajeTotal)) {
+    if (!seTieneQueRegistrar(puntajeARegistrar, listaPuntajes)) {
         return;
     }
 
-    listaPuntajes.push({nombre, puntajeTotal, cantidadDePalabras})
+    listaPuntajes.push(puntajeARegistrar)
 
     listaPuntajes.sort((a, b) => b.puntajeTotal - a.puntajeTotal);
 
     const top10Puntajes = listaPuntajes.slice(0, 10);
-
     localStorage.setItem("puntajes", JSON.stringify(top10Puntajes));
+
+    const {id} = puntajeARegistrar;
+    localStorage.setItem("ultimoGameID", id.toString());
 }
 
 /**
  * Indica sí el puntaje obtenido debe ser registrado
+ *
+ * El puntaje debe ser registrado si no tiene el mismo ID que el anterior puntaje
+ * y sí el puntaje es mayor al puntaje más chico de la lista
+ * @param id id del juego
  * @param listaPuntajes el top 10 de puntajes ordenados de mayor a menor
  * @param puntajeTotal el puntaje a registrar
  * @returns {boolean}
  */
-function seTieneQueRegistrar(listaPuntajes, puntajeTotal) {
+function seTieneQueRegistrar({id, puntajeTotal}, listaPuntajes) {
+    if(id === ultimoIdRegistrado()){
+        return false
+    }
 
     if (listaPuntajes.length < 10) {
         return true
@@ -55,4 +64,9 @@ function seTieneQueRegistrar(listaPuntajes, puntajeTotal) {
     const ultimoPuntajeRegistrado = listaPuntajes[listaPuntajes.length - 1].puntajeTotal;
 
     return puntajeTotal >= ultimoPuntajeRegistrado;
+}
+
+
+export function ultimoIdRegistrado(){
+    return parseInt(localStorage.getItem("ultimoGameID")) || 0
 }

@@ -2,7 +2,7 @@ import {
     almacenarPuntaje,
     cambiarNombre,
     obtenerNombreDeJugador,
-    obtenerPuntajes,
+    obtenerPuntajes, ultimoIdRegistrado,
     vaciarNombre
 } from "./ServicesStorage.js";
 
@@ -11,9 +11,9 @@ import {
  * @param puntajeTotal puntaje de la partida jugada
  * @param cantidadDePalabras cantidad de palabras acertadas de la partida jugada
  */
-export function guardarPuntaje(puntajeTotal, cantidadDePalabras) {
+export function guardarPuntaje({id, puntajeTotal, cantidadDePalabras}) {
     const nombre =  obtenerNombreDeJugador()
-    almacenarPuntaje({nombre, puntajeTotal, cantidadDePalabras})
+    almacenarPuntaje({id, nombre, puntajeTotal, cantidadDePalabras})
 }
 
 
@@ -33,4 +33,10 @@ export function obtenerUsuario(){
     return {
         nombre: obtenerNombreDeJugador()
     }
+}
+
+export function generarId(){
+    const id = ultimoIdRegistrado()
+
+    return id + 1;
 }

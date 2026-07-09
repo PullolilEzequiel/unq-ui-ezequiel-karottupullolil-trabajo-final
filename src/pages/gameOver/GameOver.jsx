@@ -1,5 +1,5 @@
-import {useEffect, useRef, useState} from "react";
-import {guardarPuntaje, listarPuntajes, quitarUsuario} from "../../services/userServices";
+import {useEffect,  useState} from "react";
+import {guardarPuntaje, listarPuntajes, quitarUsuario} from "../../services/gameServices.js";
 import TablaDePuntajes from "../../components/tables/TablaDePuntajes";
 import {useLocation, useNavigate} from "react-router-dom";
 
@@ -9,26 +9,26 @@ export default function GameOver() {
     const location = useLocation();
     const navigate = useNavigate();
     const [puntajesData, setData] = useState([]);
-    const puntajeRegistrado = useRef(false);
-    const {puntaje = 0, cantidadDePalabrasValidas = 0} = location.state || {};
-    useEffect(() => {
-        if (puntajeRegistrado.current) return;
 
-        if (location.state) {
-            puntajeRegistrado.current = true;
-            guardarPuntaje(puntaje, cantidadDePalabrasValidas)
-        }
+    const {id, puntaje , cantidadDePalabrasValidas } = location.state;
+    useEffect(() => {
+        console.log(id, puntaje, cantidadDePalabrasValidas)
+        guardarPuntaje({
+            id: id,
+            puntajeTotal: puntaje,
+            cantidadDePalabras: cantidadDePalabrasValidas
+        });
 
         setData(listarPuntajes())
-    }, [location.state, puntaje, cantidadDePalabrasValidas])
+    }, [id, puntaje, cantidadDePalabrasValidas])
 
-    const volerAtras = () => {
+    const volverAtras = () => {
         navigate("/")
     }
 
-    const volerAtrasYCambiarNombre = () => {
+    const volverAtrasYCambiarNombre = () => {
         quitarUsuario()
-        volerAtras()
+        volverAtras()
     }
     return <div id="container">
         <div className="message">
@@ -40,8 +40,8 @@ export default function GameOver() {
             <p>Palabras encadenadas: <strong>{cantidadDePalabrasValidas}</strong></p>
         </div>
         <div id="lose-actions">
-            <button onClick={volerAtras} className="back-button">Volver a jugar</button>
-            <button onClick={volerAtrasYCambiarNombre} className="back-button">Cambiar nombre y volver a jugar</button>
+            <button onClick={volverAtras} className="back-button">Volver a jugar</button>
+            <button onClick={volverAtrasYCambiarNombre} className="back-button">Cambiar nombre y volver a jugar</button>
         </div>
 
         <TablaDePuntajes data={puntajesData}/>
