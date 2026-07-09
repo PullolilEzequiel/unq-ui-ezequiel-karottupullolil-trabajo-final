@@ -12,18 +12,15 @@ export default function GameOver() {
     const puntajeRegistrado = useRef(false);
     const {puntaje = 0, cantidadDePalabrasValidas = 0} = location.state || {};
     useEffect(() => {
-
         if (puntajeRegistrado.current) return;
 
-        puntajeRegistrado.current = true;
         if (location.state) {
+            puntajeRegistrado.current = true;
             guardarPuntaje(puntaje, cantidadDePalabrasValidas)
-
-            navigate(location.pathname, {replace: true, state: null})
         }
 
         setData(obtenerPuntajes())
-    }, [])
+    }, [location.state, puntaje, cantidadDePalabrasValidas])
 
     const volerAtras = () => {
         navigate("/")
