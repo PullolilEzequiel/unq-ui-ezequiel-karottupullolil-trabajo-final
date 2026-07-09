@@ -7,6 +7,7 @@ import validarPalabra from "../../services/wordServices";
 import { guardarPuntaje, obtenerNombre, cambiarNombre} from "../../services/userServices";
 import NameForm from "../../components/NameForm";
 import TablaDePalabras from "../../components/tables/TablaDePalabras";
+import NameModal from "../../components/NameModal.jsx";
 
 export default function Game(){
     const navigate = useNavigate();
@@ -53,14 +54,11 @@ export default function Game(){
         setNombre(obtenerNombre())
     }, [])
 
-    if (nombre === ""){
-        return <div id="container"> <NameForm update={actualizarNombre} /> </div> 
-    }
-
     const errorClassName = error !== "" ? "error visible" : "error"
 
     return(
     <div id='container'>
+        {nombre === "" && <NameModal onChangeName={actualizarNombre}/>}
         <Timer onTimeUp={gameOver} active={isPlaying} trigger={resetTimer}/>
         <WordInput onAction={agregarPalabra} error={error} />
         <div className={errorClassName}>{error}</div>

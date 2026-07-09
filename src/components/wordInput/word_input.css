@@ -2,7 +2,8 @@
 .word-text-field.error-input{
     background-color: #D94E4E;
     color: #ffff;
-    font: 900 bold;
+    font-size: 900px;
+    font-family: bold;
 }
 
 #word--input > button {

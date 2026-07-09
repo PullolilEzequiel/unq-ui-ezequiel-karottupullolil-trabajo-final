@@ -1,5 +1,5 @@
 import { useState } from "react"
-
+import "./components.css";
 export default function NameForm({update}){
     const [nombre, setNombre] = useState("")
 
