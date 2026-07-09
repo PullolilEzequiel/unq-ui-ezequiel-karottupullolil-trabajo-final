@@ -4,7 +4,7 @@ import WordInput from "../../components/wordInput/WordInput";
 import "./game.css"
 import {useNavigate} from "react-router-dom";
 import validarPalabra from "../../services/wordServices";
-import {cambiarNombre, obtenerNombre} from "../../services/userServices";
+import {crearUsuario, obtenerUsuario} from "../../services/userServices";
 import TablaDePalabras from "../../components/tables/TablaDePalabras";
 import NameModal from "../../components/NameModal.jsx";
 
@@ -49,20 +49,21 @@ export default function Game() {
         setIsValidating(false);
     }
 
-    const actualizarNombre = (nombre) => {
-        cambiarNombre(nombre)
+    const handleUsuario = (nombre) => {
+        crearUsuario(nombre)
         setNombre(nombre)
     }
 
     useEffect(() => {
-        setNombre(obtenerNombre())
+        const {nombre} = obtenerUsuario()
+        setNombre(nombre)
     }, [])
 
     const errorClassName = error !== "" ? "error visible" : "error"
 
     return (
         <div id='container'>
-            {nombre === "" && <NameModal onChangeName={actualizarNombre}/>}
+            {nombre === "" && <NameModal onChangeName={handleUsuario}/>}
             <Timer validating={isValidating} onTimeUp={gameOver} active={isPlaying} trigger={resetTimer}/>
             <WordInput validating={isValidating} onAction={agregarPalabra} error={error}/>
             <div className={errorClassName}>{error}</div>

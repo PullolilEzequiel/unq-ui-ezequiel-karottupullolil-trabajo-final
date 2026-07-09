@@ -1,7 +1,7 @@
 import {useEffect, useRef, useState} from "react"
 import "./components.css"
 export default function Timer({onTimeUp, active, trigger, validating}) {
-    const TIEMPO_INICIAL = 15;
+    const TIEMPO_INICIAL =  1;
     const [time, setTime] = useState(15);
 
     const onTimeUpRef = useRef(onTimeUp);

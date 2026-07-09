@@ -6,7 +6,7 @@ export default function NameForm({update}) {
 
     const changeName = (e) => {
         e.preventDefault()
-        update(nombre)
+        update({nombre})
     }
     return (
         <form id="word--input" onSubmit={changeName}>

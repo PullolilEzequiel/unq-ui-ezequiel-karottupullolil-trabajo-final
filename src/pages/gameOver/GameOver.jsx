@@ -1,5 +1,5 @@
 import {useEffect, useRef, useState} from "react";
-import {guardarPuntaje, obtenerPuntajes, vaciarNombre} from "../../services/userServices";
+import {guardarPuntaje, listarPuntajes, quitarUsuario} from "../../services/userServices";
 import TablaDePuntajes from "../../components/tables/TablaDePuntajes";
 import {useLocation, useNavigate} from "react-router-dom";
 
@@ -19,7 +19,7 @@ export default function GameOver() {
             guardarPuntaje(puntaje, cantidadDePalabrasValidas)
         }
 
-        setData(obtenerPuntajes())
+        setData(listarPuntajes())
     }, [location.state, puntaje, cantidadDePalabrasValidas])
 
     const volerAtras = () => {
@@ -27,7 +27,7 @@ export default function GameOver() {
     }
 
     const volerAtrasYCambiarNombre = () => {
-        vaciarNombre()
+        quitarUsuario()
         volerAtras()
     }
     return <div id="container">
