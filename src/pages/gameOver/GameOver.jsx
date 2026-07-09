@@ -10,13 +10,15 @@ export default function GameOver() {
     const navigate = useNavigate();
     const [puntajesData, setData] = useState([]);
 
-    const {id, puntaje , cantidadDePalabrasValidas } = location.state;
+    const {id, puntaje , cantidadDePalabrasValidas } = location.state || {};
     useEffect(() => {
-        guardarPuntaje({
-            id: id,
-            puntajeTotal: puntaje,
-            cantidadDePalabras: cantidadDePalabrasValidas
-        });
+        if(id){
+            guardarPuntaje({
+                id: id,
+                puntajeTotal: puntaje,
+                cantidadDePalabras: cantidadDePalabrasValidas
+            });
+        }
 
         setData(listarPuntajes())
     }, [id, puntaje, cantidadDePalabrasValidas])
@@ -33,11 +35,11 @@ export default function GameOver() {
         <div className="message">
             <h1>Perdiste!</h1>
         </div>
-
-        <div id="resumen-partida">
+        {id && <div id="resumen-partida">
             <p>Puntaje final: <strong>{puntaje}</strong></p>
             <p>Palabras encadenadas: <strong>{cantidadDePalabrasValidas}</strong></p>
-        </div>
+        </div>}
+
         <div id="lose-actions">
             <button onClick={volverAtras} className="back-button">Volver a jugar</button>
             <button onClick={volverAtrasYCambiarNombre} className="back-button">Cambiar nombre y volver a jugar</button>

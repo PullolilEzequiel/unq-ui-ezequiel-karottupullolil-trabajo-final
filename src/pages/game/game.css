@@ -8,3 +8,9 @@
 
     overflow-y: hidden;
 }
+
+.saltar-puntaje {
+    background-color: #e7dbcd;
+    padding: 1rem;
+    border-radius: 1rem;
+}

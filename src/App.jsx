@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Game from './pages/game/Game'
 import GameOver from './pages/gameOver/GameOver'
-import About from './pages/About'
+import About from './pages/about/About.jsx'
 
 
 import './index.css'

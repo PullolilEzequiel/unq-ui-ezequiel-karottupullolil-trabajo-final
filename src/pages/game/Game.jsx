@@ -59,6 +59,10 @@ export default function Game() {
         setNombre(nombre)
     }
 
+    const irApuntajes = ()=>{
+        navigate("/game-over")
+    }
+
     useEffect(() => {
         const {nombre} = obtenerUsuario()
         setNombre(nombre)
@@ -77,6 +81,8 @@ export default function Game() {
                 error={error}/>
             <div className={errorClassName}>{error}</div>
             <TablaDePalabras data={palabrasUsadas} puntaje={puntaje}/>
+
+            <button onClick={irApuntajes} className="saltar-puntaje">Ver los mejores 10 puntajes historicos!</button>
         </div>
     )
 }
