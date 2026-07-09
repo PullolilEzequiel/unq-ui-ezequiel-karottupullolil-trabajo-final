@@ -17,7 +17,7 @@ export default function NameForm({update}) {
                    autoComplete="off"
                    onChange={e => setNombre(e.target.value)}/>
 
-            <button>Enviar</button>
+            <button id="word-button" className="unfreeze">Enviar</button>
         </form>
     )
 }

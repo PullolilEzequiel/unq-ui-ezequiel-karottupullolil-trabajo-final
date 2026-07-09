@@ -1,6 +1,6 @@
 import {useEffect, useRef, useState} from "react"
-
-export default function Timer({onTimeUp, active, trigger}) {
+import "./components.css"
+export default function Timer({onTimeUp, active, trigger, validating}) {
     const TIEMPO_INICIAL = 15;
     const [time, setTime] = useState(15);
 
@@ -18,12 +18,12 @@ export default function Timer({onTimeUp, active, trigger}) {
         return tiempoActual - 1;
     }
     useEffect(() => {
-        if (!active) return;
+        if (!active || validating) return;
         const intervalo = setInterval(() => {
             setTime(handleTime)
         }, 1000);
         return () => clearInterval(intervalo);
-    }, [active])
+    }, [active, validating])
 
     const inicializado = useRef(false);
     useEffect(() => {
@@ -34,5 +34,6 @@ export default function Timer({onTimeUp, active, trigger}) {
         setTime(TIEMPO_INICIAL)
 
     }, [trigger])
-    return <div id='timer'>{time}</div>
+    const itemClass = validating ? "wait" : "tick"
+    return <div id="timer" className={itemClass}>{time}</div>
 }

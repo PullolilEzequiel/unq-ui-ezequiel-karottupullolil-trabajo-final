@@ -28,23 +28,6 @@ body {
 .visible {
     visibility: visible;
 }
-#timer {
-    background-color: #E7DBCD;
-    color: #0B132B;
-    padding: 2rem 5rem;
-    border-radius: 10px;
-    font-weight: 600;
-    font-size: 26px;
-}
-
-
-#word--input {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    max-width: 750px;
-}
-
 
 .word-text-field {
     width: 100%;

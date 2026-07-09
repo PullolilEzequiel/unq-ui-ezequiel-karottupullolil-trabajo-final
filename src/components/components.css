@@ -75,3 +75,27 @@
         opacity: 1;
     }
 }
+
+#timer {
+    padding: 2rem 5rem;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 26px;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+#timer.tick {
+    background-color: #E7DBCD;
+    color: #0B132B;
+}
+
+#timer.wait {
+    background-color: #5a554f;
+    color: #E7DBCD;
+}
+
+#timer.error {
+    background-color: #b8336a;
+    color: #E7DBCD;
+}
+

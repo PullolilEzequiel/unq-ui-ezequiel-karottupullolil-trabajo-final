@@ -5,14 +5,27 @@
     font-weight: bold;
 }
 
-#word--input > button {
+#word-button{
     width: fit-content;
     padding: 0 2rem;
-    background-color: #1C2541;
-    color: #E7DBCD;
     border-radius: 0 3rem 3rem 0;
     font-size: 1.5rem;
     border: none;
+}
+
+#word-button.unfreeze{
+    background-color: #1c2541;
+    color: #E7DBCD;
+}
+
+.freeze {
+    background-color: #5a554f;
+    color: #E7DBCD;
+}
+
+.word-text-field.unfreeze{
+    background-color: #E7DBCD;
+    color: #1C2541;
 }
 
 @keyframes shake {

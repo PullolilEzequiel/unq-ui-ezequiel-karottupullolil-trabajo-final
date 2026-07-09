@@ -2,7 +2,7 @@ import {useEffect, useState} from "react";
 
 import "./word_input.css"
 
-export default function WordInput({onAction, error}) {
+export default function WordInput({onAction, error, validating}) {
     const [nombre, setNombre] = useState("")
     const [shake, setShake] = useState(false)
     const handleWordInput = (e) => {
@@ -19,6 +19,8 @@ export default function WordInput({onAction, error}) {
             setShake(true);
         }
     }, [error]);
+
+    const freezeClass = validating ? "freeze" : "unfreeze"
     return (
         <form id="word--input" className={shake ? "shake-animation" : ""} onSubmit={handleWordInput}
               onAnimationEnd={() => setShake(false)}>
@@ -26,12 +28,13 @@ export default function WordInput({onAction, error}) {
                 type="text"
                 value={nombre}
                 placeholder={error !== "" ? error : "Tu palabra es..."}
-                className={`word-text-field ${error ? "error-input" : ""}`}
+                className={`word-text-field ${error ? "error-input" : validating ? "freeze" : "unfreeze"}`}
                 name="palabra"
                 autoComplete="off"
                 onChange={e => setNombre(e.target.value)}
+                readOnly={validating}
             />
-            <button>Enviar</button>
+            <button disabled={validating} id="word-button" className={freezeClass}>Enviar</button>
         </form>
 
     );
