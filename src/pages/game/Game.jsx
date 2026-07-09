@@ -33,7 +33,7 @@ export default function Game() {
 
         setIsValidating(true);
         const {isValid, nuevaPalabra, message} = await validarPalabra(palabrasUsadas, palabra);
-        console.log(isValid, nuevaPalabra, message)
+        
 
         if (isValid) {
             setPalabrasUsadas([nuevaPalabra, ...palabrasUsadas])

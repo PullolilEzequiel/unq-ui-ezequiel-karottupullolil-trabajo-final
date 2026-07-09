@@ -3,7 +3,7 @@ import axios from "axios";
 export default async function validarPalabra(palabras, palabra) {
     const word = palabra.trim().toLowerCase();
     const puntaje = word.length;
-    console.log(palabras, palabra)
+    
     if (word.length >= 36) {
         return {isValid: false, message: "La palabra no existe"};
     }

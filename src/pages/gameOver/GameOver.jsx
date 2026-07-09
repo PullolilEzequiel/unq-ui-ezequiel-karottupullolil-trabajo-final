@@ -12,7 +12,6 @@ export default function GameOver() {
 
     const {id, puntaje , cantidadDePalabrasValidas } = location.state;
     useEffect(() => {
-        console.log(id, puntaje, cantidadDePalabrasValidas)
         guardarPuntaje({
             id: id,
             puntajeTotal: puntaje,

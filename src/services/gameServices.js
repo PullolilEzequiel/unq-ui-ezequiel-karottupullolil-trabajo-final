@@ -4,7 +4,7 @@ import {
     obtenerNombreDeJugador,
     obtenerPuntajes, ultimoIdRegistrado,
     vaciarNombre
-} from "./ServicesStorage.js";
+} from "./servicesStorage.js";
 
 /**
  * Guarda en el localStorage el puntaje sí es mayor al ultimo puntaje de la lista
