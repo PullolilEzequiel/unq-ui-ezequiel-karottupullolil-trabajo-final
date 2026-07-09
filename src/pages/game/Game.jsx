@@ -15,12 +15,12 @@ export default function Game(){
     const [error, setError] = useState("")
     const [resetTimer, setResetTimer] = useState(false);
     const [puntaje, setPuntaje] = useState(0)
-
+    const [cantidadDePalabrasValidas, setCantidadDePalabras] = useState(0);
     const [nombre, setNombre] = useState("")
     const gameOver = ()=>{
-        setPlaying(false)
-        guardarPuntaje(puntaje) 
-        navigate("/game-over")
+        setPlaying(false);
+        guardarPuntaje(puntaje, cantidadDePalabrasValidas)
+        navigate("/game-over", {state:{nombre, puntaje, cantidadDePalabrasValidas}})
     }
 
     const agregarPalabra = async (palabra) => {
@@ -37,6 +37,9 @@ export default function Game(){
             setPalabrasUsadas([nuevaPalabra, ...palabrasUsadas])
             setResetTimer(!resetTimer)
             setPuntaje(puntaje + nuevaPalabra.puntos)
+            setCantidadDePalabras(
+                cantidadDePalabrasValidas + 1
+            )
         }else{
             setError(message)
         }
@@ -55,7 +58,7 @@ export default function Game(){
         return <div id="container"> <NameForm update={actualizarNombre} /> </div> 
     }
 
-    const errorClassName = error != "" ? "error visible" : "error"
+    const errorClassName = error !== "" ? "error visible" : "error"
 
     return(
     <div id='container'>

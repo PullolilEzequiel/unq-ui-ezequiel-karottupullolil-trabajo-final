@@ -1,4 +1,4 @@
-export function guardarPuntaje(puntajeTotal) {
+export function guardarPuntaje(puntajeTotal, cantidadDePalabras) {
     const nombre = localStorage.getItem("nombre");
 
     if (!nombre) {
@@ -7,7 +7,7 @@ export function guardarPuntaje(puntajeTotal) {
     const puntajesActualesRaw = localStorage.getItem("puntajes");
     const listaPuntajes = puntajesActualesRaw ? JSON.parse(puntajesActualesRaw) : [];
 
-    listaPuntajes.push({ nombre, puntajeTotal })
+    listaPuntajes.push({ nombre, puntajeTotal, cantidadDePalabras })
 
     listaPuntajes.sort((a, b) => b.puntajeTotal - a.puntajeTotal);
 

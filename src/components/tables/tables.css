@@ -25,7 +25,7 @@
 
 
 .scoreboard {
-    grid-template-columns:100px 5fr 1fr ;
+    grid-template-columns:100px 5fr 1fr 5fr ;
     
 }
 
