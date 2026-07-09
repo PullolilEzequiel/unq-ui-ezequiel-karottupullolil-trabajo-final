@@ -1,5 +1,5 @@
-#e7dbcdff;
-#1c2541ff;
-#b8336aff;
-#2e86abff;
-#668f80ff;
+#e7dbcdff; //blanco crema
+#1c2541ff; // azul oscuro
+#b8336aff; //error
+#2e86abff; //azul claro
+#5a554f;  // gris

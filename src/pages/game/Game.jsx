@@ -73,7 +73,7 @@ export default function Game() {
     return (
         <div id='container'>
             {nombre === "" && <NameModal onChangeName={handleUsuario}/>}
-            <Timer validating={isValidating} onTimeUp={gameOver} active={isPlaying} trigger={resetTimer}/>
+            <Timer key={resetTimer} validating={isValidating} onTimeUp={gameOver} active={isPlaying} trigger={resetTimer}/>
             <WordInput
                 ultimaLetra={ultimaLetra}
                 validating={isValidating}

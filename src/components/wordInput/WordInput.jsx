@@ -22,7 +22,7 @@ export default function WordInput({ultimaLetra, onAction, error, validating}) {
 
     }, [error]);
 
-    const freezeClass = validating ? "freeze" : "unfreeze"
+    const buttonClass = error ? "error-button" : validating ? "freeze" : "unfreeze"
     let placeHolderMsg = "Tu palabra es... "
     if(ultimaLetra){
         placeHolderMsg = `Empezá con ${ultimaLetra.toUpperCase()}`
@@ -49,7 +49,7 @@ export default function WordInput({ultimaLetra, onAction, error, validating}) {
                 onChange={e => setNombre(e.target.value)}
                 readOnly={validating}
             />
-            <button disabled={validating} id="word-button" className={freezeClass}>Enviar</button>
+            <button disabled={validating} id="word-button" className={buttonClass}>Enviar</button>
         </form>
 
     );

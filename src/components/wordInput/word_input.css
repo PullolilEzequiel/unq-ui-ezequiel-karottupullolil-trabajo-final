@@ -1,6 +1,12 @@
 
 .word-text-field.error-input {
-    background-color: #D94E4E;
+    background-color: #b8336aff;
+    color: #ffff;
+    font-weight: bold;
+}
+
+.error-button{
+    background-color: #B8336A;
     color: #ffff;
     font-weight: bold;
 }
