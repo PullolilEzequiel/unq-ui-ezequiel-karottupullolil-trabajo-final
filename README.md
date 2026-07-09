@@ -38,5 +38,5 @@ npm install
  npm run start 
 ```
 
-4. En caso de que no se haya abierto una pestaña, ir a `http://localhost:4173/`
+4. En caso de que no se haya abierto una pestaña, ir a [pagina](http://localhost:4173/) (http://localhost:4173/)
 
