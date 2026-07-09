@@ -3,7 +3,6 @@ import axios from "axios";
 export default async function validarPalabra(palabras, palabra) {
     const word = palabra.trim().toLowerCase();
     const puntaje = word.length;
-    
     if (word.length >= 36) {
         return {isValid: false, message: "La palabra no existe"};
     }
@@ -19,7 +18,8 @@ export default async function validarPalabra(palabras, palabra) {
         if (ultimaLetra !== word[0]) {
             return {
                 isValid: false,
-                message: `La palabra debe empezar con "${ultimaLetra.toUpperCase()}"`
+                message: `La palabra debe empezar con "${ultimaLetra.toUpperCase()}"`,
+                ultimaLetra: null
             };
         }
     }
@@ -28,12 +28,14 @@ export default async function validarPalabra(palabras, palabra) {
         const response = await axios.get(`/api/validate?word=${word}`);
 
         if (response.data.exists) {
+            const proximaLetraInicial = word.at(-1).toLowerCase();
             return {
                 isValid: true,
-                nuevaPalabra: {palabra: word, puntos: puntaje}
+                nuevaPalabra: {palabra: word, puntos: puntaje},
+                ultimaLetra: proximaLetraInicial
             };
         } else {
-            return {isValid: false, message: `La palabra "${word}" no existe`};
+            return {isValid: false, message: `La palabra "${word}" no existe`, ultimaLetra: null};
         }
     } catch (error) {
         console.error(error)
@@ -41,6 +43,6 @@ export default async function validarPalabra(palabras, palabra) {
             ? `Palabra inválida "${word}"`
             : "Error de comunicación con el servidor";
 
-        return {isValid: false, message};
+        return {isValid: false, message, ultimaLetra: null};
     }
 }

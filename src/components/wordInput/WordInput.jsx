@@ -2,7 +2,7 @@ import {useEffect, useState} from "react";
 
 import "./word_input.css"
 
-export default function WordInput({onAction, error, validating}) {
+export default function WordInput({ultimaLetra, onAction, error, validating}) {
     const [nombre, setNombre] = useState("")
     const [shake, setShake] = useState(false)
     const handleWordInput = (e) => {
@@ -11,20 +11,26 @@ export default function WordInput({onAction, error, validating}) {
         if (!parsed) return;
 
         onAction(parsed)
-        setNombre("")
     }
 
     useEffect(() => {
         if (error) {
             setShake(true);
         }
-    }, [error]);
+
+        if (ultimaLetra) {
+            setNombre(ultimaLetra);
+        } else {
+            setNombre("");
+        }
+    }, [error, ultimaLetra]);
 
     const freezeClass = validating ? "freeze" : "unfreeze"
     return (
         <form id="word--input" className={shake ? "shake-animation" : ""} onSubmit={handleWordInput}
               onAnimationEnd={() => setShake(false)}>
             <input
+                autoFocus={true}
                 type="text"
                 value={nombre}
                 placeholder={error !== "" ? error : "Tu palabra es..."}

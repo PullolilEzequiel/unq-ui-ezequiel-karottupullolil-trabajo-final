@@ -17,8 +17,9 @@ export default function Game() {
     const [puntaje, setPuntaje] = useState(0)
     const [cantidadDePalabrasValidas, setCantidadDePalabras] = useState(0);
     const [nombre, setNombre] = useState("")
-
+    const [ultimaLetra, setUltimaLetra] = useState("")
     const [isValidating, setIsValidating] = useState(false);
+    const [keyActual, setKeyActual] = useState(0)
     const gameOver = () => {
         setPlaying(false)
         navigate("/game-over", {state: {id: generarId(), puntaje, cantidadDePalabrasValidas}})
@@ -32,8 +33,12 @@ export default function Game() {
         }
 
         setIsValidating(true);
-        const {isValid, nuevaPalabra, message} = await validarPalabra(palabrasUsadas, palabra);
-        
+        const {
+            isValid,
+            nuevaPalabra,
+            message,
+            ultimaLetra} = await validarPalabra(palabrasUsadas, palabra);
+
 
         if (isValid) {
             setPalabrasUsadas([nuevaPalabra, ...palabrasUsadas])
@@ -42,6 +47,8 @@ export default function Game() {
             setCantidadDePalabras(
                 cantidadDePalabrasValidas + 1
             )
+            setUltimaLetra(ultimaLetra)
+            setKeyActual(prev => prev + 1);
         } else {
             setError(message)
         }
@@ -65,7 +72,12 @@ export default function Game() {
         <div id='container'>
             {nombre === "" && <NameModal onChangeName={handleUsuario}/>}
             <Timer validating={isValidating} onTimeUp={gameOver} active={isPlaying} trigger={resetTimer}/>
-            <WordInput validating={isValidating} onAction={agregarPalabra} error={error}/>
+            <WordInput
+                key={cantidadDePalabrasValidas}
+                ultimaLetra={ultimaLetra}
+                validating={isValidating}
+                onAction={agregarPalabra}
+                error={error}/>
             <div className={errorClassName}>{error}</div>
             <TablaDePalabras data={palabrasUsadas} puntaje={puntaje}/>
         </div>
