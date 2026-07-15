@@ -12,14 +12,6 @@ export default function GameOver() {
 
     const {id, puntaje , cantidadDePalabrasValidas } = location.state || {};
     useEffect(() => {
-        if(id){
-            guardarPuntaje({
-                id: id,
-                puntajeTotal: puntaje,
-                cantidadDePalabras: cantidadDePalabrasValidas
-            });
-        }
-
         setData(listarPuntajes())
     }, [id, puntaje, cantidadDePalabrasValidas])
 

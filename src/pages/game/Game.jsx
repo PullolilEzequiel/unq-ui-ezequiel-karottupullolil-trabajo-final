@@ -4,12 +4,13 @@ import WordInput from "../../components/wordInput/WordInput";
 import "./game.css"
 import {useNavigate} from "react-router-dom";
 import validarPalabra from "../../services/wordServices";
-import {crearUsuario, generarId, obtenerUsuario} from "../../services/gameServices.js";
+import {crearUsuario, generarId, guardarPuntaje, obtenerUsuario} from "../../services/gameServices.js";
 import TablaDePalabras from "../../components/tables/TablaDePalabras";
 import NameModal from "../../components/NameModal.jsx";
 
 export default function Game() {
     const navigate = useNavigate();
+
     const [isPlaying, setPlaying] = useState(false);
     const [palabrasUsadas, setPalabrasUsadas] = useState([]);
     const [error, setError] = useState("")
@@ -21,6 +22,12 @@ export default function Game() {
     const [isValidating, setIsValidating] = useState(false);
     const gameOver = () => {
         setPlaying(false)
+        const id = generarId();
+        guardarPuntaje({
+            id,
+            puntajeTotal: puntaje,
+            cantidadDePalabras: cantidadDePalabrasValidas
+        })
         navigate("/game-over", {state: {id: generarId(), puntaje, cantidadDePalabrasValidas}})
     }
 
@@ -70,6 +77,7 @@ export default function Game() {
 
     const errorClassName = error !== "" ? "error visible" : "error"
 
+
     return (
         <div id='container'>
 
@@ -82,11 +90,11 @@ export default function Game() {
                 validating={isValidating}
                 onAction={agregarPalabra}
                 error={error}/>
-            <div className={errorClassName}>{error}</div>
+
+            {error !== "" ?  <div className={errorClassName}>{error}</div> : <button onClick={irApuntajes} className="saltar-puntaje">Ver los mejores 10 puntajes historicos!</button>}
             <div className="tabla-wrapper-compartida">
             <TablaDePalabras data={palabrasUsadas} puntaje={puntaje} ultimaLetra={ultimaLetra}/>
             </div>
-            <button onClick={irApuntajes} className="saltar-puntaje">Ver los mejores 10 puntajes historicos!</button>
         </div>
     )
 }

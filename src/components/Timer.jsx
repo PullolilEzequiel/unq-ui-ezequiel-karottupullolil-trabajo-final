@@ -22,19 +22,15 @@ export default function Timer({ onTimeUp, active, trigger, validating }) {
     };
 
     useEffect(() => {
-        if (!active || validating) return;
+        if (!active) return;
         const intervalo = setInterval(() => {
             setTime(handleTime);
         }, 1000);
         return () => clearInterval(intervalo);
-    }, [active, validating]);
+    }, [active]);
 
     const inicializado = useRef(false);
     useEffect(() => {
-        if (!inicializado.current) {
-            inicializado.current = true;
-            return;
-        }
         setTime(TIEMPO_INICIAL);
     }, [trigger]);
 
