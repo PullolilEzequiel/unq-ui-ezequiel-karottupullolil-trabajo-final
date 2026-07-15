@@ -1,7 +1,7 @@
 import TableRow from "./TableRow.jsx"
 import "./tables.css"
 
-export default function TablaDePalabras({palabrasPorLetra = [], puntaje, ultimaLetra}) {
+export default function TablaDePalabras({palabrasPorLetra, puntaje, ultimaLetra}) {
     const letraClave = ultimaLetra?.toLowerCase();
     const grupoCoincidente = letraClave ? palabrasPorLetra[letraClave] : null;
     return (
@@ -14,9 +14,9 @@ export default function TablaDePalabras({palabrasPorLetra = [], puntaje, ultimaL
             <div id="data-table" className="wordboard">
                 <div className="tableHeader">Palabra</div>
                 <div className="tableHeader">Puntaje</div>
-                {grupoCoincidente && grupoCoincidente.map((item, index) => (
+                {grupoCoincidente && grupoCoincidente.map((item) => (
                     <TableRow
-                        key={`coincide-${index}`}
+                        key={item.palabra}
                         identificador={item.palabra}
                         puntos={item.puntos}
                         showIndex={false}

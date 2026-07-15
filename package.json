@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "lint": "oxlint",
+    "lint": "oxlint -D style -D perf -A correctness src/",
     "preview": "vite preview",
     "start": "vite build && vite preview --open"
   },

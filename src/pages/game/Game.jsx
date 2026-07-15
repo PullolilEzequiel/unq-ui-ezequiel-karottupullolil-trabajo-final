@@ -11,21 +11,21 @@ import NameModal from "../../components/NameModal.jsx";
 export default function Game() {
     const navigate = useNavigate();
 
-    const [isPlaying, setPlaying] = useState(false);
+    const [isPlaying, setIsPlaying] = useState(false);
     const [palabrasUsadas, setPalabrasUsadas] = useState({});
     const [error, setError] = useState("")
     const [resetTimer, setResetTimer] = useState(false);
     const [puntaje, setPuntaje] = useState(0)
     const [cantidadDePalabrasValidas, setCantidadDePalabras] = useState(0);
     const [nombre, setNombre] = useState("")
-    const [ultimaLetraActual, setUltimaLetra] = useState("")
+    const [ultimaLetraActual, setUltimaLetraActual] = useState("")
     const [isValidating, setIsValidating] = useState(false);
 
     const juegoTerminadoRef = useRef(false);
     const gameOver = () => {
 
         if (juegoTerminadoRef.current) return;
-        setPlaying(false)
+        setIsPlaying(false)
 
         juegoTerminadoRef.current = true;
         guardarPuntaje({
@@ -61,10 +61,10 @@ export default function Game() {
             setResetTimer(!resetTimer)
             setPuntaje(prev => prev + nuevaPalabra.puntos)
             setCantidadDePalabras(prev => prev + 1)
-            setUltimaLetra(ultimaLetra)
+            setUltimaLetraActual(ultimaLetra)
 
             if (!isPlaying) {
-                setPlaying(true)
+                setIsPlaying(true)
             }
         } else {
             setError(message)

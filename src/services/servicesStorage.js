@@ -39,7 +39,7 @@ export function almacenarPuntaje(puntajeARegistrar) {
 }
 
 /**
- * Indica sí el puntaje obtenido debe ser registrado
+ * Índica sí el puntaje obtenido debe ser registrado
  *
  * El puntaje debe ser registrado si no tiene el mismo ID que el anterior puntaje
  * y sí el puntaje es mayor al puntaje más chico de la lista
