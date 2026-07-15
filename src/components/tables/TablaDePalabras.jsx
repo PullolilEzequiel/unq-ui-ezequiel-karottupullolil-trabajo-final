@@ -20,7 +20,7 @@ export default function TablaDePalabras({palabrasPorLetra, puntaje, ultimaLetra}
                         identificador={item.palabra}
                         puntos={item.puntos}
                         showIndex={false}
-                        palabraResltada={true}
+                        palabraResltada
                     />
                 ))}
 

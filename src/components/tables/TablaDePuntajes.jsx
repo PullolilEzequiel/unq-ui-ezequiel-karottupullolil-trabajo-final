@@ -16,7 +16,7 @@ export default function TablaDePuntajes({data = []}) {
                         identificador={item.nombre}
                         puntos={item.puntajeTotal}
                         cantidadDePalabras={item.cantidadDePalabras}
-                        showIndex={true}/>
+                        showIndex/>
                 )}
 
             </div>

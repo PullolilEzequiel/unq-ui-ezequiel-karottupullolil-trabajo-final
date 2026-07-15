@@ -3,16 +3,16 @@ import {useEffect, useState} from "react";
 import "./word_input.css"
 
 export default function WordInput({ultimaLetra, onAction, error, validating}) {
-    const [nombre, setNombre] = useState("")
+    const [palabra, setPalabra] = useState("")
     const [shake, setShake] = useState(false)
     const handleWordInput = (e) => {
         e.preventDefault();
-        const parsed = nombre.trim()
+        const parsed = palabra.trim()
         if (!parsed) return;
 
         onAction(parsed)
 
-        setNombre("")
+        setPalabra("")
     }
 
     useEffect(() => {
@@ -34,19 +34,19 @@ export default function WordInput({ultimaLetra, onAction, error, validating}) {
     if (error) {
         placeHolderMsg = error
     }
-    // {error ? error : ultimaLetra ? `Empezá con "${ultimaLetra.toUpperCase()}"...` : "Tu palabra es..."}
+
     return (
         <form id="word--input" className={shake ? "shake-animation" : ""} onSubmit={handleWordInput}
               onAnimationEnd={() => setShake(false)}>
             <input
-                autoFocus={true}
+                autoFocus
                 type="text"
-                value={nombre}
+                value={palabra}
                 placeholder={placeHolderMsg}
                 className={`word-text-field ${error ? "error-input" : validating ? "freeze" : "unfreeze"}`}
                 name="palabra"
                 autoComplete="off"
-                onChange={e => setNombre(e.target.value)}
+                onChange={e => setPalabra(e.target.value)}
                 readOnly={validating}
                 maxLength={36}
             />
