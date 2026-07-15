@@ -1,7 +1,7 @@
-import "./about.css";
+import "./notfound.css";
 import {useNavigate} from "react-router-dom";
 
-export default function About() {
+export default function NotFound() {
     const navigate = useNavigate();
 
     const volverAlInicio = () => {

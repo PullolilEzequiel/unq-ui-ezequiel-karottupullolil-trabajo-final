@@ -1,7 +1,7 @@
 import {BrowserRouter, Route, Routes} from 'react-router-dom'
 import Game from './pages/game/Game'
 import GameOver from './pages/gameOver/GameOver'
-import About from './pages/about/About.jsx'
+import NotFound from './pages/notfound/NotFound.jsx'
 
 
 import './index.css'
@@ -12,7 +12,7 @@ function App() {
             <Routes>
                 <Route path='/' element={<Game/>}/>
                 <Route path='/game-over' element={<GameOver/>}/>
-                <Route path='*' element={<About/>}/>
+                <Route path='*' element={<NotFound/>}/>
             </Routes>
         </BrowserRouter>
     )
