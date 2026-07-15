@@ -1,6 +1,11 @@
 import axios from "axios";
 
-export default async function validarPalabra(palabras, palabra) {
+export function empiezaPor(palabra, letra) {
+    if (!palabra || !letra) return false;
+    return palabra.trim().toLowerCase().startsWith(letra.trim().toLowerCase());
+}
+
+export async function validarPalabra(palabras, palabra) {
     const word = palabra.trim().toLowerCase();
     const puntaje = word.length;
 
@@ -20,7 +25,7 @@ export default async function validarPalabra(palabras, palabra) {
         const ultimaPalabraValida = palabras[0].palabra;
         const ultimaLetra = ultimaPalabraValida.at(-1).toLowerCase();
 
-        if (ultimaLetra !== word[0]) {
+        if(!empiezaPor(word, ultimaLetra)){
             return {
                 isValid: false,
                 message: `La palabra debe empezar con "${ultimaLetra.toUpperCase()}"`,

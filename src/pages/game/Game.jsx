@@ -3,7 +3,7 @@ import Timer from "../../components/Timer";
 import WordInput from "../../components/wordInput/WordInput";
 import "./game.css"
 import {useNavigate} from "react-router-dom";
-import validarPalabra from "../../services/wordServices";
+import {validarPalabra} from "../../services/wordServices";
 import {crearUsuario, generarId, guardarPuntaje, obtenerUsuario} from "../../services/gameServices.js";
 import TablaDePalabras from "../../components/tables/TablaDePalabras";
 import NameModal from "../../components/NameModal.jsx";
@@ -91,7 +91,7 @@ export default function Game() {
                 onAction={agregarPalabra}
                 error={error}/>
 
-            {error !== "" ?  <div className={errorClassName}>{error}</div> : <button onClick={irApuntajes} className="saltar-puntaje">Ver los mejores 10 puntajes historicos!</button>}
+            {error !== "" || isPlaying ?  <div className={errorClassName}>{error}</div> : <button onClick={irApuntajes} className="saltar-puntaje">Ver los mejores 10 puntajes historicos!</button>}
             <div className="tabla-wrapper-compartida">
             <TablaDePalabras data={palabrasUsadas} puntaje={puntaje} ultimaLetra={ultimaLetra}/>
             </div>

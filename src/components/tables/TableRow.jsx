@@ -1,10 +1,19 @@
-export default function TableRow({indice, identificador, puntos, cantidadDePalabras, showIndex}) {
+export default function TableRow({indice, identificador, puntos, cantidadDePalabras, showIndex, palabraResltada}) {
+    const rowClass = palabraResltada ? "table-row-container highlighted-row" : "table-row-container";
+
     return (
-        <>
-            {showIndex && <div className="row">{indice}</div>}
-            {identificador && <div className="row">{identificador}</div>}
-            {puntos && <div className="row">{puntos}</div>}
-            {cantidadDePalabras && <div className="row">{cantidadDePalabras}</div>}
-        </>
-    )
+        <div className={rowClass}>
+            {showIndex && <div className="row row-index">{indice}</div>}
+
+
+            {identificador && (
+                <div className={`row row-word ${palabraResltada ? "highlighted-word" : ""}`}>
+                    {identificador}
+                </div>
+            )}
+
+            {puntos !== undefined && <div className="row row-points">{puntos}</div>}
+            {cantidadDePalabras !== undefined && <div className="row row-count">{cantidadDePalabras}</div>}
+        </div>
+    );
 }

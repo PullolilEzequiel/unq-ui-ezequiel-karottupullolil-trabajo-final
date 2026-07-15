@@ -28,8 +28,7 @@ export default function Timer({ onTimeUp, active, trigger, validating }) {
         }, 1000);
         return () => clearInterval(intervalo);
     }, [active]);
-
-    const inicializado = useRef(false);
+    
     useEffect(() => {
         setTime(TIEMPO_INICIAL);
     }, [trigger]);

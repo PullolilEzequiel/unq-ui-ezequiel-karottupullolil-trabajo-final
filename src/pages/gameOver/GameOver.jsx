@@ -1,5 +1,5 @@
-import {useEffect,  useState} from "react";
-import {guardarPuntaje, listarPuntajes, quitarUsuario} from "../../services/gameServices.js";
+import {useEffect, useState} from "react";
+import {listarPuntajes, quitarUsuario} from "../../services/gameServices.js";
 import TablaDePuntajes from "../../components/tables/TablaDePuntajes";
 import {useLocation, useNavigate} from "react-router-dom";
 
