@@ -38,12 +38,10 @@ export default function Game() {
 
 
         if (isValid) {
-            setPalabrasUsadas([nuevaPalabra, ...palabrasUsadas])
+            setPalabrasUsadas(prev => [nuevaPalabra, ...prev])
             setResetTimer(!resetTimer)
-            setPuntaje(puntaje + nuevaPalabra.puntos)
-            setCantidadDePalabras(
-                cantidadDePalabrasValidas + 1
-            )
+            setPuntaje(prev => prev + nuevaPalabra.puntos)
+            setCantidadDePalabras( prev => prev + 1 )
             setUltimaLetra(ultimaLetra)
 
             if (!isPlaying) {
@@ -57,7 +55,7 @@ export default function Game() {
     }
 
     const handleUsuario = (nombre) => {
-        crearUsuario(nombre)
+        crearUsuario({nombre})
         setNombre(nombre)
     }
 
@@ -77,7 +75,7 @@ export default function Game() {
 
             <div className="top-section-wrapper">
                 {nombre === "" && <NameModal onChangeName={handleUsuario}/>}
-                <Timer key={resetTimer} validating={isValidating} onTimeUp={gameOver} active={isPlaying} trigger={resetTimer}/>
+                <Timer validating={isValidating} onTimeUp={gameOver} active={isPlaying} trigger={resetTimer}/>
             </div>
             <WordInput
                 ultimaLetra={ultimaLetra}

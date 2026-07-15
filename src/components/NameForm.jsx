@@ -6,11 +6,11 @@ export default function NameForm({update}) {
 
     const changeName = (e) => {
         e.preventDefault()
-        update({nombre})
+        update(nombre)
     }
 
     const handleAnonymous = ()=>{
-        update({nombre: "Anonimo"})
+        update("Anonimo")
     }
 
 
