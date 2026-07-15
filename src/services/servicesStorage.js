@@ -1,30 +1,30 @@
-export function obtenerNombreDeJugador(){
+export function obtenerNombreDeJugador() {
     return localStorage.getItem("nombre") || ""
 }
 
-export function cambiarNombre(nombre){
+export function cambiarNombre(nombre) {
     const nombreFixed = nombre.trim()
 
-    if(nombreFixed === ""){
+    if (nombreFixed === "") {
         throw new Error("Nombre invalido")
     }
 
     localStorage.setItem("nombre", nombreFixed)
 }
 
-export function obtenerPuntajes(){
-    try{
+export function obtenerPuntajes() {
+    try {
         return JSON.parse(localStorage.getItem("puntajes")) || []
-    }catch {
+    } catch {
         return []
     }
 }
 
-export function vaciarNombre(){
+export function vaciarNombre() {
     localStorage.removeItem("nombre");
 }
 
-export function almacenarPuntaje(puntajeARegistrar){
+export function almacenarPuntaje(puntajeARegistrar) {
     const listaPuntajes = obtenerPuntajes()
     if (!seTieneQueRegistrar(puntajeARegistrar, listaPuntajes)) {
         return;

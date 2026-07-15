@@ -9,7 +9,7 @@ export default function NameForm({update}) {
         update(nombre)
     }
 
-    const handleAnonymous = ()=>{
+    const handleAnonymous = () => {
         update("Anonimo")
     }
 
@@ -24,7 +24,8 @@ export default function NameForm({update}) {
                    onChange={e => setNombre(e.target.value)}/>
             <div id="action-container">
                 <button className="modal-button unfreeze">Guardar nombre</button>
-                <button type="button" onClick={handleAnonymous} className="modal-button unfreeze">Omitir por ahora</button>
+                <button type="button" onClick={handleAnonymous} className="modal-button unfreeze">Omitir por ahora
+                </button>
             </div>
 
         </form>

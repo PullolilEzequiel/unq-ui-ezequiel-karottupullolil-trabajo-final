@@ -5,13 +5,13 @@
     font-weight: bold;
 }
 
-.error-button{
+.error-button {
     background-color: #B8336A;
     color: #ffff;
     font-weight: bold;
 }
 
-#word-button{
+#word-button {
     width: fit-content;
     padding: 0 2rem;
     border-radius: 0 1rem 1rem 0;
@@ -19,7 +19,7 @@
     border: none;
 }
 
-#word-button.unfreeze{
+#word-button.unfreeze {
     background-color: #1c2541;
     color: #E7DBCD;
 }
@@ -29,7 +29,7 @@
     color: #E7DBCD;
 }
 
-.word-text-field.unfreeze{
+.word-text-field.unfreeze {
     background-color: #E7DBCD;
     color: #1C2541;
 }

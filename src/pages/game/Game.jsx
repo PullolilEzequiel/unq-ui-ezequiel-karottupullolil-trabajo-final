@@ -45,7 +45,8 @@ export default function Game() {
             isValid,
             nuevaPalabra,
             message,
-            ultimaLetra} = await validarPalabra(palabrasUsadas, palabra, ultimaLetraActual);
+            ultimaLetra
+        } = await validarPalabra(palabrasUsadas, palabra, ultimaLetraActual);
 
 
         if (isValid) {
@@ -59,7 +60,7 @@ export default function Game() {
             });
             setResetTimer(!resetTimer)
             setPuntaje(prev => prev + nuevaPalabra.puntos)
-            setCantidadDePalabras( prev => prev + 1 )
+            setCantidadDePalabras(prev => prev + 1)
             setUltimaLetra(ultimaLetra)
 
             if (!isPlaying) {
@@ -77,7 +78,7 @@ export default function Game() {
         setNombre(nombre)
     }
 
-    const irApuntajes = ()=>{
+    const irApuntajes = () => {
         navigate("/game-over")
     }
 
@@ -102,9 +103,11 @@ export default function Game() {
                 onAction={agregarPalabra}
                 error={error}/>
 
-            {error !== "" || isPlaying ?  <div className={errorClassName}>{error}</div> : <button onClick={irApuntajes} className="saltar-puntaje">Ver los mejores 10 puntajes historicos!</button>}
+            {error !== "" || isPlaying ? <div className={errorClassName}>{error}</div> :
+                <button onClick={irApuntajes} className="saltar-puntaje">Ver los mejores 10 puntajes
+                    historicos!</button>}
             <div className="tabla-wrapper-compartida">
-            <TablaDePalabras palabrasPorLetra={palabrasUsadas} puntaje={puntaje} ultimaLetra={ultimaLetraActual}/>
+                <TablaDePalabras palabrasPorLetra={palabrasUsadas} puntaje={puntaje} ultimaLetra={ultimaLetraActual}/>
             </div>
         </div>
     )

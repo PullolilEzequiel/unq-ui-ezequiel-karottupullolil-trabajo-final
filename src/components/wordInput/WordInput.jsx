@@ -24,14 +24,14 @@ export default function WordInput({ultimaLetra, onAction, error, validating}) {
 
     const buttonClass = error ? "error-button" : validating ? "freeze" : "unfreeze"
     let placeHolderMsg = "Tu palabra es... "
-    if(ultimaLetra){
+    if (ultimaLetra) {
         placeHolderMsg = `Empezá con ${ultimaLetra.toUpperCase()}`
     }
 
-    if(validating){
+    if (validating) {
         placeHolderMsg = `Esperando respuesta de la API`
     }
-    if(error){
+    if (error) {
         placeHolderMsg = error
     }
     // {error ? error : ultimaLetra ? `Empezá con "${ultimaLetra.toUpperCase()}"...` : "Tu palabra es..."}

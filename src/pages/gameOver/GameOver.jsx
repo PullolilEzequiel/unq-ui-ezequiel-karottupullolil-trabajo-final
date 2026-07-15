@@ -10,10 +10,10 @@ export default function GameOver() {
     const navigate = useNavigate();
     const [puntajesData, setData] = useState([]);
 
-    const {puntaje , cantidadDePalabrasValidas } = location.state || {};
+    const {puntaje, cantidadDePalabrasValidas} = location.state || {};
     useEffect(() => {
         setData(listarPuntajes())
-    }, [puntaje , cantidadDePalabrasValidas])
+    }, [puntaje, cantidadDePalabrasValidas])
 
     const volverAtras = () => {
         navigate("/")

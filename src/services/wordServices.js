@@ -10,7 +10,7 @@ export async function validarPalabra(palabras, palabra, ultimaLetraRequerida) {
     const puntaje = word.length;
 
     if (!word) {
-        return { isValid: false, message: "La palabra no puede estar vacía" };
+        return {isValid: false, message: "La palabra no puede estar vacía"};
     }
 
     if (word.length >= 36) {
@@ -24,7 +24,7 @@ export async function validarPalabra(palabras, palabra, ultimaLetraRequerida) {
         return {isValid: false, message: `La palabra "${palabra}" ya fue utilizada`};
     }
 
-    if(ultimaLetraRequerida){
+    if (ultimaLetraRequerida) {
         const ultimaLetra = ultimaLetraRequerida.toLowerCase();
 
         if (!empiezaPor(word, ultimaLetra)) {

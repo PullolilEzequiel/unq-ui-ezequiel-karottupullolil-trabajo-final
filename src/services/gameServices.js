@@ -12,24 +12,24 @@ import {
  * @param cantidadDePalabras cantidad de palabras acertadas de la partida jugada
  */
 export function guardarPuntaje({puntajeTotal, cantidadDePalabras}) {
-    const nombre =  obtenerNombreDeJugador()
+    const nombre = obtenerNombreDeJugador()
     almacenarPuntaje({nombre, puntajeTotal, cantidadDePalabras})
 }
 
 
-export function listarPuntajes(){
+export function listarPuntajes() {
     return obtenerPuntajes()
 }
 
-export function quitarUsuario(){
+export function quitarUsuario() {
     vaciarNombre()
 }
 
-export function crearUsuario({nombre}){
+export function crearUsuario({nombre}) {
     cambiarNombre(nombre)
 }
 
-export function obtenerUsuario(){
+export function obtenerUsuario() {
     return {
         nombre: obtenerNombreDeJugador()
     }

@@ -46,11 +46,12 @@
 }
 
 
-#name--input{
+#name--input {
     width: 100%;
     max-width: 750px;
 }
-#action-container{
+
+#action-container {
     display: flex;
     justify-content: space-between;
 }
@@ -130,6 +131,7 @@
 .timer-container.wait .timer-circle-progress {
     stroke: #5a554f;
 }
+
 .timer-container.wait .timer-number {
     color: #5a554f;
 }

@@ -1,7 +1,7 @@
-import { useEffect, useRef, useState } from "react";
+import {useEffect, useRef, useState} from "react";
 import "./components.css";
 
-export default function Timer({ onTimeUp, active, trigger, validating }) {
+export default function Timer({onTimeUp, active, trigger, validating}) {
     const TIEMPO_INICIAL = 15;
     const [time, setTime] = useState(TIEMPO_INICIAL);
 
@@ -28,7 +28,7 @@ export default function Timer({ onTimeUp, active, trigger, validating }) {
         }, 1000);
         return () => clearInterval(intervalo);
     }, [active]);
-    
+
     useEffect(() => {
         setTime(TIEMPO_INICIAL);
     }, [trigger]);
