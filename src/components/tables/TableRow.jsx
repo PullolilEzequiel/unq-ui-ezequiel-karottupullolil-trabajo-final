@@ -5,13 +5,9 @@ export default function TableRow({indice, identificador, puntos, cantidadDePalab
         <div className={rowClass}>
             {showIndex && <div className="row row-index">{indice}</div>}
 
-
-            {identificador && (
-                <div className={`row row-word ${palabraResltada ? "highlighted-word" : ""}`}>
-                    {identificador}
-                </div>
-            )}
-
+            <div className={`row row-word ${palabraResltada ? "highlighted-word" : ""}`}>
+                {identificador ? identificador : "Falta palabra clave"}
+            </div>
             {puntos !== undefined && <div className="row row-points">{puntos}</div>}
             {cantidadDePalabras !== undefined && <div className="row row-count">{cantidadDePalabras}</div>}
         </div>

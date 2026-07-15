@@ -28,9 +28,9 @@ export default function TablaDePalabras({palabrasPorLetra, puntaje, ultimaLetra}
 
                     if (letra === letraClave) return null;
 
-                    return palabrasPorLetra[letra].map((item, index) => (
+                    return palabrasPorLetra[letra].map((item) => (
                         <TableRow
-                            key={`resto-${letra}-${index}`}
+                            key={item.palabra}
                             identificador={item.palabra}
                             puntos={item.puntos}
                             showIndex={false}
