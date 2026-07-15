@@ -10,10 +10,10 @@ export default function GameOver() {
     const navigate = useNavigate();
     const [puntajesData, setData] = useState([]);
 
-    const {id, puntaje , cantidadDePalabrasValidas } = location.state || {};
+    const {puntaje , cantidadDePalabrasValidas } = location.state || {};
     useEffect(() => {
         setData(listarPuntajes())
-    }, [id, puntaje, cantidadDePalabrasValidas])
+    }, [puntaje , cantidadDePalabrasValidas])
 
     const volverAtras = () => {
         navigate("/")
@@ -24,7 +24,7 @@ export default function GameOver() {
         volverAtras()
     }
     return <div id="container">
-        {id ? <div id="resumen-partida">
+        {puntaje && cantidadDePalabrasValidas ? <div id="resumen-partida">
             <h1>Perdiste!</h1>
             <p>Puntaje final: <strong>{puntaje}</strong></p>
             <p>Palabras encadenadas: <strong>{cantidadDePalabrasValidas}</strong></p>

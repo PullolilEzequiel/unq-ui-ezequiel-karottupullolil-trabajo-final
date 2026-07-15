@@ -1,18 +1,9 @@
 import TableRow from "./TableRow.jsx"
 import "./tables.css"
-import {empiezaPor} from "../../services/wordServices.js";
 
 export default function TablaDePalabras({palabrasPorLetra = [], puntaje, ultimaLetra}) {
     const letraClave = ultimaLetra?.toLowerCase();
-    const coinciden = letraClave && palabrasPorLetra[letraClave]
-        ? palabrasPorLetra[letraClave]
-        : [];
-    const noCoinciden = Object.entries(palabrasPorLetra)
-        .filter(([letra]) => letra !== letraClave)
-        .flatMap(([_, palabras]) => palabras);
-
-
-    const palabrasOrdenadas = [...coinciden, ...noCoinciden];
+    const grupoCoincidente = letraClave ? palabrasPorLetra[letraClave] : null;
     return (
         <div id="table-container">
             {ultimaLetra && (
@@ -23,16 +14,30 @@ export default function TablaDePalabras({palabrasPorLetra = [], puntaje, ultimaL
             <div id="data-table" className="wordboard">
                 <div className="tableHeader">Palabra</div>
                 <div className="tableHeader">Puntaje</div>
-                {palabrasOrdenadas && palabrasOrdenadas.map((item, indice) =>
+                {grupoCoincidente && grupoCoincidente.map((item, index) => (
                     <TableRow
-                            key={indice}
-                            indice={indice + 1}
+                        key={`coincide-${index}`}
+                        identificador={item.palabra}
+                        puntos={item.puntos}
+                        showIndex={false}
+                        palabraResltada={true}
+                    />
+                ))}
+
+                {Object.keys(palabrasPorLetra).map((letra) => {
+
+                    if (letra === letraClave) return null;
+
+                    return palabrasPorLetra[letra].map((item, index) => (
+                        <TableRow
+                            key={`resto-${letra}-${index}`}
                             identificador={item.palabra}
                             puntos={item.puntos}
                             showIndex={false}
-                            palabraResltada={empiezaPor(item.palabra.toString(), ultimaLetra)}
+                            palabraResltada={false}
                         />
-                )}
+                    ));
+                })}
             </div>
 
             <div className="tableTotal">

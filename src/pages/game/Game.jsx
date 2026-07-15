@@ -1,10 +1,10 @@
-import {useEffect, useState} from "react"
+import {useEffect, useRef, useState} from "react"
 import Timer from "../../components/Timer";
 import WordInput from "../../components/wordInput/WordInput";
 import "./game.css"
 import {useNavigate} from "react-router-dom";
 import {validarPalabra} from "../../services/wordServices";
-import {crearUsuario, generarId, guardarPuntaje, obtenerUsuario} from "../../services/gameServices.js";
+import {crearUsuario, guardarPuntaje, obtenerUsuario} from "../../services/gameServices.js";
 import TablaDePalabras from "../../components/tables/TablaDePalabras";
 import NameModal from "../../components/NameModal.jsx";
 
@@ -12,7 +12,7 @@ export default function Game() {
     const navigate = useNavigate();
 
     const [isPlaying, setPlaying] = useState(false);
-    const [palabrasUsadas, setPalabrasUsadas] = useState([]);
+    const [palabrasUsadas, setPalabrasUsadas] = useState({});
     const [error, setError] = useState("")
     const [resetTimer, setResetTimer] = useState(false);
     const [puntaje, setPuntaje] = useState(0)
@@ -20,15 +20,19 @@ export default function Game() {
     const [nombre, setNombre] = useState("")
     const [ultimaLetraActual, setUltimaLetra] = useState("")
     const [isValidating, setIsValidating] = useState(false);
+
+    const juegoTerminadoRef = useRef(false);
     const gameOver = () => {
+
+        if (juegoTerminadoRef.current) return;
         setPlaying(false)
-        const id = generarId();
+
+        juegoTerminadoRef.current = true;
         guardarPuntaje({
-            id,
             puntajeTotal: puntaje,
             cantidadDePalabras: cantidadDePalabrasValidas
         })
-        navigate("/game-over", {state: {id: generarId(), puntaje, cantidadDePalabrasValidas}})
+        navigate("/game-over", {state: {puntaje, cantidadDePalabrasValidas}})
     }
 
     const agregarPalabra = async (palabra) => {
