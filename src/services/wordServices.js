@@ -5,7 +5,7 @@ export function empiezaPor(palabra, letra) {
     return palabra.trim().toLowerCase().startsWith(letra.trim().toLowerCase());
 }
 
-export async function validarPalabra(palabras, palabra) {
+export async function validarPalabra(palabras, palabra, ultimaLetraRequerida) {
     const word = palabra.trim().toLowerCase();
     const puntaje = word.length;
 
@@ -17,15 +17,17 @@ export async function validarPalabra(palabras, palabra) {
         return {isValid: false, message: "La palabra no existe"};
     }
 
-    if (palabras.some(e => e.palabra.toLowerCase() === word)) {
+    const primeraLetra = word[0];
+    const grupoLetra = palabras[primeraLetra] || [];
+
+    if (grupoLetra.some(e => e.palabra.toLowerCase() === word)) {
         return {isValid: false, message: `La palabra "${palabra}" ya fue utilizada`};
     }
 
-    if (palabras.length > 0) {
-        const ultimaPalabraValida = palabras[0].palabra;
-        const ultimaLetra = ultimaPalabraValida.at(-1).toLowerCase();
+    if(ultimaLetraRequerida){
+        const ultimaLetra = ultimaLetraRequerida.toLowerCase();
 
-        if(!empiezaPor(word, ultimaLetra)){
+        if (!empiezaPor(word, ultimaLetra)) {
             return {
                 isValid: false,
                 message: `La palabra debe empezar con "${ultimaLetra.toUpperCase()}"`,

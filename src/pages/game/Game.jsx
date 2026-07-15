@@ -18,7 +18,7 @@ export default function Game() {
     const [puntaje, setPuntaje] = useState(0)
     const [cantidadDePalabrasValidas, setCantidadDePalabras] = useState(0);
     const [nombre, setNombre] = useState("")
-    const [ultimaLetra, setUltimaLetra] = useState("")
+    const [ultimaLetraActual, setUltimaLetra] = useState("")
     const [isValidating, setIsValidating] = useState(false);
     const gameOver = () => {
         setPlaying(false)
@@ -41,11 +41,18 @@ export default function Game() {
             isValid,
             nuevaPalabra,
             message,
-            ultimaLetra} = await validarPalabra(palabrasUsadas, palabra);
+            ultimaLetra} = await validarPalabra(palabrasUsadas, palabra, ultimaLetraActual);
 
 
         if (isValid) {
-            setPalabrasUsadas(prev => [nuevaPalabra, ...prev])
+            const letraInicial = nuevaPalabra.palabra[0].toLowerCase();
+            setPalabrasUsadas(prev => {
+                const grupoExistente = prev[letraInicial] || [];
+                return {
+                    ...prev,
+                    [letraInicial]: [nuevaPalabra, ...grupoExistente]
+                };
+            });
             setResetTimer(!resetTimer)
             setPuntaje(prev => prev + nuevaPalabra.puntos)
             setCantidadDePalabras( prev => prev + 1 )
@@ -86,14 +93,14 @@ export default function Game() {
                 <Timer validating={isValidating} onTimeUp={gameOver} active={isPlaying} trigger={resetTimer}/>
             </div>
             <WordInput
-                ultimaLetra={ultimaLetra}
+                ultimaLetra={ultimaLetraActual}
                 validating={isValidating}
                 onAction={agregarPalabra}
                 error={error}/>
 
             {error !== "" || isPlaying ?  <div className={errorClassName}>{error}</div> : <button onClick={irApuntajes} className="saltar-puntaje">Ver los mejores 10 puntajes historicos!</button>}
             <div className="tabla-wrapper-compartida">
-            <TablaDePalabras data={palabrasUsadas} puntaje={puntaje} ultimaLetra={ultimaLetra}/>
+            <TablaDePalabras palabrasPorLetra={palabrasUsadas} puntaje={puntaje} ultimaLetra={ultimaLetraActual}/>
             </div>
         </div>
     )

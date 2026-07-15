@@ -2,13 +2,24 @@ import TableRow from "./TableRow.jsx"
 import "./tables.css"
 import {empiezaPor} from "../../services/wordServices.js";
 
-export default function TablaDePalabras({data = [], puntaje, ultimaLetra}) {
-    const coinciden = data.filter(item => empiezaPor(item.palabra?.toString(), ultimaLetra));
-    const noCoinciden = data.filter(item => !empiezaPor(item.palabra?.toString(), ultimaLetra));
+export default function TablaDePalabras({palabrasPorLetra = [], puntaje, ultimaLetra}) {
+    const letraClave = ultimaLetra?.toLowerCase();
+    const coinciden = letraClave && palabrasPorLetra[letraClave]
+        ? palabrasPorLetra[letraClave]
+        : [];
+    const noCoinciden = Object.entries(palabrasPorLetra)
+        .filter(([letra]) => letra !== letraClave)
+        .flatMap(([_, palabras]) => palabras);
+
 
     const palabrasOrdenadas = [...coinciden, ...noCoinciden];
     return (
         <div id="table-container">
+            {ultimaLetra && (
+                <div className="ultima-letra-mensaje">
+                    Mostrando palabras que empiezan con: <strong>{ultimaLetra.toUpperCase()}</strong>
+                </div>
+            )}
             <div id="data-table" className="wordboard">
                 <div className="tableHeader">Palabra</div>
                 <div className="tableHeader">Puntaje</div>
