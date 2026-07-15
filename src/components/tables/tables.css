@@ -88,17 +88,17 @@
 
 
 .table-row-container.highlighted-row .row {
-    background-color: rgba(74, 222, 128, 0.15);
+    background-color: rgba(49, 87, 44, 0.12);
     font-weight: 600;
     transition: background-color 0.3s ease;
 }
 
 
 .table-row-container.highlighted-row .row:first-child {
-    border-left: 4px solid #4ade80;
+    border-left: 4px solid #4F772D;
 }
 
 
 .highlighted-word {
-    color: #22c55e;
+    color: #2A5A3B;
 }
